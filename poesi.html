@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poesi — Emil Salzer</title>
+    <meta name="description" content="L&aelig;s udvalgte digte af Emil Salzer. Sofistikeret symbolisme og eksplosive rytmers r&aring; direkthed.">
+    <meta name="view-transition" content="same-origin">
+    <link rel="canonical" href="https://emilsalzer.dk/poesi.html">
+    <meta property="og:title" content="Poesi — Emil Salzer">
+    <meta property="og:description" content="L&aelig;s udvalgte digte af Emil Salzer.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --black: #1A1A1A; --white: #FFFFFF; --grey: #666666; --light-grey: #F5F5F5; --border: #E0E0E0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Times New Roman', Times, Georgia, serif; font-size: 16px; line-height: 1.7; color: var(--black); background: var(--white); -webkit-font-smoothing: antialiased; }
+
+        .nav { display: flex; justify-content: space-between; align-items: center; padding: 24px 48px; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--white); z-index: 100; }
+        .nav-logo { font-size: 22px; font-weight: 700; letter-spacing: 0.5px; color: var(--black); text-decoration: none; }
+        .nav-links { display: flex; gap: 32px; list-style: none; }
+        .nav-links a { font-size: 15px; color: var(--black); text-decoration: none; transition: opacity 0.2s; }
+        .nav-links a:hover { opacity: 0.6; }
+        .nav-links a.active { font-weight: 700; }
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+        .hamburger span { width: 24px; height: 2px; background: var(--black); transition: 0.3s; }
+
+        .page-hero { text-align: center; padding: 80px 48px 40px; }
+        .page-hero h1 { font-size: clamp(48px, 6vw, 72px); font-weight: 700; line-height: 1.1; }
+
+        .intro {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 0 48px 60px;
+            text-align: left;
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--grey);
+        }
+
+        .poem-section {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 0 48px 80px;
+        }
+        .poem-year {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .poem-year-line {
+            width: 200px;
+            height: 2px;
+            background: var(--black);
+            margin-bottom: 32px;
+        }
+        .poem-title {
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: 700;
+            margin-bottom: 32px;
+            line-height: 1.15;
+        }
+        .poem-body {
+            font-size: 16px;
+            line-height: 1.9;
+        }
+        .poem-body .stanza {
+            margin-bottom: 28px;
+        }
+        .poem-body em {
+            font-style: italic;
+        }
+        .poem-note {
+            font-style: italic;
+            color: var(--grey);
+            margin-top: 40px;
+            font-size: 14px;
+        }
+        .poem-note a {
+            color: var(--black);
+        }
+
+        .poem-divider {
+            width: 60px;
+            height: 1px;
+            background: var(--border);
+            margin: 80px auto;
+        }
+
+        .footer { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 40px; padding: 60px 48px; border-top: 1px solid var(--border); font-size: 14px; }
+        .footer-col h4 { font-weight: 700; font-size: 14px; margin-bottom: 12px; }
+        .footer-col p, .footer-col a { color: var(--grey); text-decoration: none; line-height: 2; display: block; }
+        .footer-col a:hover { color: var(--black); }
+        .footer-col .email { font-size: 18px; font-weight: 700; color: var(--black); }
+        .footer-credit { font-size: 12px; color: #999; margin-top: 8px; }
+
+        [data-reveal] { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        [data-reveal].revealed { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 900px) {
+            .nav { padding: 20px 24px; }
+            .nav-links { display: none; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--border); padding: 24px; gap: 20px; }
+            .hamburger { display: flex; }
+            .page-hero { padding: 48px 24px 24px; }
+            .intro { padding: 0 24px 40px; }
+            .poem-section { padding: 0 24px 60px; }
+            .footer { grid-template-columns: 1fr 1fr; padding: 40px 24px; }
+        }
+        @media (max-width: 560px) { .footer { grid-template-columns: 1fr; } }
+        @view-transition { navigation: auto; }
+        ::view-transition-old(root), ::view-transition-new(root) { animation-duration: 0.3s; }
+    </style>
+</head>
+<body>
+
+    <nav class="nav">
+        <a href="index.html" class="nav-logo">Salzer</a>
+        <button class="hamburger" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links">
+            <li><a href="foredrag.html">Foredrag</a></li>
+            <li><a href="boeger.html">B&oslash;ger</a></li>
+            <li><a href="poesi.html" class="active">Poesi</a></li>
+            <li><a href="filosofi.html">Filosofi</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <section class="page-hero" data-reveal>
+        <h1>Poesi.</h1>
+    </section>
+
+    <div class="intro" data-reveal>
+        <p>I et sp&aelig;nd mellem en sofistikeret symbolisme og eksplosive rytmers r&aring; direkthed st&aring;r Emil Salzers lyrik p&aring; et niveau for sig. Af litteraturhistorikere kaldes han det st&oslash;rste nulevende digteriske talent p&aring; dansk. Selvom Salzers temaer som regel er bestemt af tidens f&oslash;rende konflikter, lader han sig nogle gange flyde ind en eksistentiel &aelig;stetik, der f&aring;r l&aelig;seren til at smage igen p&aring; egen essens.</p>
+        <p>Her er et udpluk af hans omdiskuterede v&aelig;rker:</p>
+    </div>
+
+    <div class="poem-section" data-reveal>
+        <div class="poem-year">2026</div>
+        <div class="poem-year-line"></div>
+
+        <h2 class="poem-title">Kultur</h2>
+
+        <div class="poem-body">
+            <div class="stanza">
+                I k&oslash;dbyen<br>
+                sippede Jonas de sidste str&aring;ler<br>
+                af diskolys i h&aring;ret<br>
+                f&oslash;r han fik kulturkniv<br>
+                boret ind i hjertet.
+            </div>
+            <div class="stanza">
+                Mangfoldigt v&aelig;re hans efterliv.
+            </div>
+            <div class="stanza">
+                Marcus stod p&aring; stationen<br>
+                og f&oslash;r han fik set sig om<br>
+                var han omringet.<br>
+                Der var ingen vej ud.<br>
+                Hans tudende tolv&aring;rige lilles&oslash;ster<br>
+                m&aring;tte se p&aring;<br>
+                mens han fik kultur.
+            </div>
+            <div class="stanza">
+                Ida satte sig ind i en &ldquo;taxi&rdquo;<br>
+                som ikke k&oslash;rte hende hjem.<br>
+                Han k&oslash;rte hende ud af by<br>
+                under motorvejsbroen<br>
+                hvor flokken ventede<br>
+                hvor de p&aring; skift<br>
+                gav hende kultur.
+            </div>
+            <div class="stanza">
+                P&aring; Bakken<br>
+                l&aelig;rte August et nyt begreb;<br>
+                <em>Kuffar, kuffar!</em><br>
+                Og s&aring; fik han et spark i ryggen<br>
+                og da han fors&oslash;gte<br>
+                at rejse sig<br>
+                fik han ekstra kultur.
+            </div>
+            <div class="stanza">
+                I frikvarteret<br>
+                begik Valdemar den fejl<br>
+                at han troede<br>
+                han for en dags skyld<br>
+                kunne undslippe kulturen.<br>
+                Men som Haidar sagde;<br>
+                <em>Danske drenge f&aring;r t&aelig;sk<br>
+                n&aring;r vi keder os<br>
+                danske drenge f&aring;r t&aelig;sk<br>
+                n&aring;r vi keder os</em>
+            </div>
+            <div class="stanza">
+                Nu er han finkultur.
+            </div>
+            <div class="stanza">
+                Ayse blev sendt p&aring; kulturrejse<br>
+                efter hun smed t&oslash;rkl&aelig;det<br>
+                og festede til sidste skoledag.
+            </div>
+            <div class="stanza">
+                Hannah blev trukket i solarium<br>
+                hvor de berigede hende<br>
+                med ild fra lighter<br>
+                og tvang hende<br>
+                til at v&aelig;re kulturel.
+            </div>
+            <div class="stanza">
+                Evigt h&aelig;nger Maren og Louisa<br>
+                i en den synkende aftensol<br>
+                efter de smagte macheterne<br>
+                p&aring; film til verdens skue:<br>
+                Kulturkanon.
+            </div>
+            <div class="stanza">
+                Og nu hvor jeg betaler<br>
+                s&aring; meget i skat<br>
+                kan jeg kun gl&aelig;de mig<br>
+                til mere kultur.
+            </div>
+            <div class="stanza">
+                Jeg tulrede langs N&oslash;rrebroparken<br>
+                med ro i sinde<br>
+                og for&aring;r i sj&aelig;l.<br>
+                16&deg; Celsius var ikke nok<br>
+                til at f&aring; dynejakkerne af dem.<br>
+                De gav mig blikket.<br>
+                Og s&aring; var der kultur.
+            </div>
+        </div>
+
+        <p class="poem-note">Digtet er skrevet 13. februar 2026 til tidsskriftet Modstommen</p>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-col">
+            <h4>Emil Salzer</h4>
+            <p>Digter og filosof</p>
+            <p class="footer-credit">Website sat op af Steven Wensley<br>2026 &copy; Emil Salzer</p>
+        </div>
+        <div class="footer-col">
+            <h4>Navigation</h4>
+            <a href="foredrag.html">Foredrag</a>
+            <a href="boeger.html">B&oslash;ger</a>
+            <a href="poesi.html">Poesi</a>
+            <a href="filosofi.html">Filosofi</a>
+            <a href="kontakt.html">Kontakt</a>
+        </div>
+        <div class="footer-col">
+            <p>Presse, TV, debat og &oslash;vrige henvendelser:</p>
+            <a href="mailto:thesalzer@gmail.com" class="email">thesalzer@gmail.com</a>
+        </div>
+        <div class="footer-col">
+            <h4>F&oslash;lg med</h4>
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+        </div>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); observer.unobserve(e.target); }});
+        }, { threshold: 0.15 });
+        document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
+    });
+    </script>
+</body>
+</html>

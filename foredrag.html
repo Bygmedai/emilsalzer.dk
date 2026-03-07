@@ -1,233 +1,220 @@
 <!DOCTYPE html>
 <html lang="da">
 <head>
-  <meta charset="UTF-8">
-  <meta name="view-transition" content="same-origin">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Foredrag — Emil Salzer</title>
-  <meta name="description" content="Emil Salzers foredrag om frihed, køn, k&aelig;rlighed, Gud, kunst, menneskelighed og kirker. Book Emil til dit arrangement.">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='2' fill='%230A0A0A'/%3E%3Ctext x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-weight='700' font-size='18' fill='%23C62828'%3ES%3C/text%3E%3C/svg%3E">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-  <style>
-    /* FE6: View Transitions */
-    @view-transition { navigation: auto; }
-    ::view-transition-old(root) { animation: vt-fade-out 0.25s ease; }
-    ::view-transition-new(root) { animation: vt-fade-in 0.25s ease; }
-    @keyframes vt-fade-out { to { opacity: 0; } }
-    @keyframes vt-fade-in { from { opacity: 0; } }
-
-    /* FE3: CSS @property gradient animation */
-    @property --grad-angle {
-      syntax: '<angle>';
-      initial-value: 135deg;
-      inherits: false;
-    }
-    @keyframes gradient-shift {
-      0%   { --grad-angle: 135deg; }
-      50%  { --grad-angle: 225deg; }
-      100% { --grad-angle: 135deg; }
-    }
-    @media (prefers-reduced-motion: no-preference) {
-      .btn-primary.gradient-animated {
-        animation: gradient-shift 6s ease-in-out infinite;
-        background: linear-gradient(var(--grad-angle), var(--accent), #8B0000, #E53935);
-        background-size: 200% 200%;
-      }
-    }
-
-    /* FE4: SVG logo line-drawing animation */
-    .logo-svg { display: none; }
-    .logo.has-svg .logo-text { display: none; }
-    .logo.has-svg .logo-svg { display: block; }
-    .logo-svg text {
-      font-family: 'Bebas Neue', Impact, sans-serif;
-      font-size: 26px;
-      letter-spacing: 0.15em;
-      fill: var(--text);
-      stroke: var(--text);
-      stroke-width: 0.8;
-      fill-opacity: 0;
-      stroke-dasharray: 300;
-      stroke-dashoffset: 300;
-    }
-    @media (prefers-reduced-motion: no-preference) {
-      .logo-svg text { animation: logo-draw 2s ease forwards, logo-fill 0.6s ease 1.8s forwards; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .logo-svg text { stroke-dashoffset: 0; fill-opacity: 1; stroke-width: 0; }
-    }
-    @keyframes logo-draw { to { stroke-dashoffset: 0; } }
-    @keyframes logo-fill { to { fill-opacity: 1; stroke-width: 0; } }
-
-  </style>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foredrag — Emil Salzer</title>
+    <meta name="description" content="Book Emil Salzer til foredrag og opl&aelig;sning. Poesi, filosofi og debat leveret med intensitet og eftertanke.">
+    <meta name="view-transition" content="same-origin">
     <link rel="canonical" href="https://emilsalzer.dk/foredrag.html">
-    <meta property="og:title" content="Foredrag | Emil Salzer">
-    <meta property="og:description" content="Book Emil Salzer til foredrag om poesi, skamhumanisme, dannelse og kulturel identitet.">
-    <meta property="og:url" content="https://emilsalzer.dk/foredrag.html">
+    <meta property="og:title" content="Foredrag — Emil Salzer">
+    <meta property="og:description" content="Book Emil Salzer til foredrag og opl&aelig;sning.">
     <meta property="og:type" content="website">
-    <meta property="og:locale" content="da_DK">
-    <meta property="og:site_name" content="Emil Salzer — Digter, Debattør, Foredragsholder">
-    <meta property="og:image" content="https://emilsalzer.dk/images/emil-salzer-portrait.jpg">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Foredrag | Emil Salzer">
-    <meta name="twitter:description" content="Book Emil Salzer til foredrag om poesi, skamhumanisme, dannelse og kulturel identitet.">
-    <meta name="twitter:image" content="https://emilsalzer.dk/images/emil-salzer-portrait.jpg">
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "Foredrag | Emil Salzer",
-      "url": "https://emilsalzer.dk/foredrag.html",
-      "description": "Book Emil Salzer til foredrag om poesi, skamhumanisme, dannelse og kulturel identitet."
-    }
-    </script>
-  </head>
-<body>
-  <nav>
-    <a href="index.html" class="logo has-svg"><span class="logo-text">SALZER</span><svg class="logo-svg" viewBox="0 0 130 30" width="130" height="30" xmlns="http://www.w3.org/2000/svg" aria-label="SALZER"><text y="24">SALZER</text></svg></a>
-    <button class="hamburger" onclick="this.classList.toggle('active');document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-    <div class="nav-links">
-      <a href="foredrag.html">Foredrag</a>
-      <a href="boeger.html">B&oslash;ger</a>
-      <a href="digte.html">Digte</a>
-      <a href="offentligt-virke.html">Offentligt virke</a>
-      <a href="om.html">Om Emil</a>
-      <a href="kontakt.html" class="nav-cta">Kontakt</a>
-    </div>
-  </nav>
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --black: #1A1A1A; --white: #FFFFFF; --grey: #666666; --light-grey: #F5F5F5; --border: #E0E0E0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Times New Roman', Times, Georgia, serif; font-size: 16px; line-height: 1.7; color: var(--black); background: var(--white); -webkit-font-smoothing: antialiased; }
 
-  <div class="page-hero page-hero-image" style="background-image: url('assets/emil-nordlys.jpg');">
-    <h1>Foredrag</h1>
-    <p>Emil holder passionerede og provokerende foredrag om de vigtigste sp&oslash;rgsm&aring;l. Book ham til dit arrangement.</p>
-  </div>
+        .nav { display: flex; justify-content: space-between; align-items: center; padding: 24px 48px; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--white); z-index: 100; }
+        .nav-logo { font-size: 22px; font-weight: 700; letter-spacing: 0.5px; color: var(--black); text-decoration: none; }
+        .nav-links { display: flex; gap: 32px; list-style: none; }
+        .nav-links a { font-size: 15px; color: var(--black); text-decoration: none; transition: opacity 0.2s; }
+        .nav-links a:hover { opacity: 0.6; }
+        .nav-links a.active { font-weight: 700; }
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+        .hamburger span { width: 24px; height: 2px; background: var(--black); transition: 0.3s; }
 
-  <main class="container">
-    <section class="content" data-reveal>
-      <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 3rem; color: #666;">I 2025 holdt Emil syv foredrag om frihed, køn, k&aelig;rlighed, Gud, kunst, menneskelighed og kirker. Alle er tilg&aelig;ngelige som gratis e-bog. Herunder finder du beskrivelse af hver enkelt foredrag.</p>
-    </section>
-
-    <section style="margin: 4rem 0;">
-      <div class="talk-detail">
-        <h3 class="talk-number">I</h3>
-        <h3>Om frihed</h3>
-        <p>Et dybt dyk ned i sp&oslash;rgsm&aring;let om hvad frihed betyder i en tid, hvor vi er mere forbundne og overvågede end nogensinde før. Emil udfordrer konventionelle forestillinger om libertinisme og forklaringer, og stiller det centrale sp&oslash;rgsm&aring;l: Er frihed en illusory eller en ansvar vi ikke kan undgå?</p>
-      </div>
-
-      <div class="talk-detail">
-        <h3 class="talk-number">II</h3>
-        <h3>Om køn</h3>
-        <p>En rå og uafslørende samtale om hvordan køn—både som biologisk virkelighed og social konstruktion—former vores eksistens. Emil navigerer mellem det postmoderne dogme og evolutionær realitet, uden at stille sig på nogen side. Dette er et foredrag for dem der tør stille spørgsmål uden på forhånd at vide svaret.</p>
-      </div>
-
-      <div class="talk-detail">
-        <h3 class="talk-number">III</h3>
-        <h3>Om k&aelig;rlighed</h3>
-        <p>K&aelig;rlighed er det eneste stof vi lever af, alligevel taler vi mindre og mindre om det. Emil udforsker k&aelig;rligheds forskellig former—romantisk, erotisk, filial, universal—og hvordan moderne kultur har nedvurderet det mest centrale menneskeligt behov. Et foredrag om længsel, forbindelse og det at være menneske.</p>
-      </div>
-
-      <div class="talk-detail">
-        <h3 class="talk-number">IV</h3>
-        <h3>Om Gud</h3>
-        <p>Uden at være religiøs eller ateistisk udforsker Emil hvad Gud betyder for mennesket i dag. Et foredrag om tro, tvivl, mening og det transcendente. For dem der søger svar uden at kunne acceptere nem svar, og for dem der har givet op på at spørge.</p>
-      </div>
-
-      <div class="talk-detail">
-        <h3 class="talk-number">V</h3>
-        <h3>Om kunst</h3>
-        <p>Hvad gør kunsten nødvendig? Emil argumenterer for at kunst ikke er pudsning, men livsnødvendigt—at den eneste vej gennem vores indre kaos er gennem skaben. Et foredrag om poesi, litteratur, musik og menneskets dybeste behov for at skabe betydning ud af kaos.</p>
-      </div>
-
-      <div class="talk-detail">
-        <h3 class="talk-number">VI</h3>
-        <h3>Om menneskelighed</h3>
-        <p>Hvad betyder det at være menneske i 2025? Emil efterforsker hvad der adskiller os fra maskiner, dyr og hinanden. Et foredrag om værdighed, samvittighed, ansvar og det at være dødelig—og hvordan det faktisk gør os fri.</p>
-      </div>
-
-      <div class="talk-detail">
-        <h3 class="talk-number">VII</h3>
-        <h3>Om kirker</h3>
-        <p>Kirken som institution er i krise, men behovet for ritual og fællesskab forsvinder ikke. Emil udforsker kirkers rolle i kultur, samfund og individets søgen efter helhed. Et foredrag om tradition, modernitet og hvordan vi holder sammen når alt falder fra hinanden.</p>
-      </div>
-    </section>
-
-    <section class="section section-cta" style="margin-top: 4rem; padding: 3rem 2rem; text-align: center;">
-      <h2 data-reveal>Vil du høre Emil tale?</h2>
-      <p style="margin: 1rem 0 2rem 0; font-size: 1.1rem;" data-reveal>Alle 7 foredrag er tilg&aelig;ngelige som gratis e-bog. Book Emil til dit arrangement, universitet, festival eller event.</p>
-      <div data-reveal>
-        <a href="kontakt.html" class="btn btn-primary gradient-animated">Kontakt Emil om booking</a>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <div class="footer-logo has-svg"><span class="logo-text">SALZER</span><svg class="logo-svg" viewBox="0 0 130 30" width="130" height="30" xmlns="http://www.w3.org/2000/svg" aria-label="SALZER"><text y="24">SALZER</text></svg></div>
-          <p class="footer-tagline">Digter &middot; Debatt&oslash;r &middot; Foredragsholder</p>
-        </div>
-        <div class="footer-links">
-          <a href="foredrag.html">Foredrag</a>
-          <a href="boeger.html">B&oslash;ger</a>
-          <a href="digte.html">Digte</a>
-          <a href="offentligt-virke.html">Offentligt virke</a>
-          <a href="om.html">Om Emil</a>
-          <a href="kontakt.html">Kontakt</a>
-        </div>
-        <div class="footer-social">
-          <a href="https://www.instagram.com/emil_salzer/" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-          </a>
-          <a href="https://www.youtube.com/@emilsalzer" target="_blank" rel="noopener" aria-label="YouTube">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-          </a>
-          <a href="https://www.facebook.com/salzerpoetry/" target="_blank" rel="noopener" aria-label="Facebook">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-          </a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 Emil Salzer. Alle rettigheder forbeholdes.</p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Animation Toolkit CDN (subpage — lighter) -->
-  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/ScrollTrigger.min.js"></script>
-  <script>
-  (function() {
-    'use strict';
-    var lenis = new Lenis({ duration: 1.2, smoothWheel: true });
-    gsap.registerPlugin(ScrollTrigger);
-    lenis.on('scroll', ScrollTrigger.update);
-    gsap.ticker.add(function(time) { lenis.raf(time * 1000); });
-    gsap.ticker.lagSmoothing(0);
-
-    var revealEls = document.querySelectorAll('[data-reveal], .talk-detail, .big-quote');
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          var parent = entry.target.parentElement;
-          var siblings = parent ? parent.querySelectorAll('.talk-detail') : [];
-          if (siblings.length > 1) {
-            var idx = Array.prototype.indexOf.call(siblings, entry.target);
-            if (idx >= 0) {
-              setTimeout(function() { entry.target.classList.add('visible'); }, idx * 120);
-            } else { entry.target.classList.add('visible'); }
-          } else { entry.target.classList.add('visible'); }
-          observer.unobserve(entry.target);
+        /* Page hero */
+        .page-hero {
+            text-align: center;
+            padding: 80px 48px 40px;
         }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
-    revealEls.forEach(function(el) { observer.observe(el); });
-  })();
-  </script>
+        .page-hero h1 {
+            font-size: clamp(48px, 6vw, 72px);
+            font-weight: 700;
+            line-height: 1.1;
+        }
+
+        /* Content */
+        .content {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 48px 80px;
+        }
+        .content p {
+            margin-bottom: 24px;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+        .content h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin: 48px 0 16px;
+        }
+
+        /* Split section */
+        .split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 60vh;
+        }
+        .split-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 64px;
+        }
+        .split-text h2 {
+            font-size: clamp(28px, 3.5vw, 40px);
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        .split-text p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--grey);
+            max-width: 440px;
+        }
+        .split-image { overflow: hidden; }
+        .split-image img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* Wide image */
+        .wide-image {
+            width: 100%;
+            overflow: hidden;
+        }
+        .wide-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* CTA */
+        .cta-section { text-align: center; padding: 100px 48px; background: var(--light-grey); }
+        .cta-section h2 { font-size: clamp(28px, 3.5vw, 44px); font-weight: 700; margin-bottom: 16px; }
+        .cta-section p { font-size: 16px; color: var(--grey); margin-bottom: 32px; }
+        .cta-button { display: inline-block; padding: 14px 40px; background: var(--black); color: var(--white); text-decoration: none; font-family: 'Times New Roman', Times, serif; font-size: 15px; letter-spacing: 0.5px; transition: opacity 0.2s; }
+        .cta-button:hover { opacity: 0.8; }
+
+        /* Footer */
+        .footer { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 40px; padding: 60px 48px; border-top: 1px solid var(--border); font-size: 14px; }
+        .footer-col h4 { font-weight: 700; font-size: 14px; margin-bottom: 12px; }
+        .footer-col p, .footer-col a { color: var(--grey); text-decoration: none; line-height: 2; display: block; }
+        .footer-col a:hover { color: var(--black); }
+        .footer-col .email { font-size: 18px; font-weight: 700; color: var(--black); }
+        .footer-credit { font-size: 12px; color: #999; margin-top: 8px; }
+
+        [data-reveal] { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        [data-reveal].revealed { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 900px) {
+            .nav { padding: 20px 24px; }
+            .nav-links { display: none; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--border); padding: 24px; gap: 20px; }
+            .hamburger { display: flex; }
+            .split { grid-template-columns: 1fr; }
+            .split-text { padding: 48px 24px; order: 1; }
+            .split-image { order: 2; height: 50vh; }
+            .page-hero { padding: 48px 24px 24px; }
+            .content { padding: 24px 24px 60px; }
+            .cta-section { padding: 60px 24px; }
+            .footer { grid-template-columns: 1fr 1fr; padding: 40px 24px; }
+        }
+        @media (max-width: 560px) { .footer { grid-template-columns: 1fr; } }
+        @view-transition { navigation: auto; }
+        ::view-transition-old(root), ::view-transition-new(root) { animation-duration: 0.3s; }
+    </style>
+</head>
+<body>
+
+    <nav class="nav">
+        <a href="index.html" class="nav-logo">Salzer</a>
+        <button class="hamburger" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links">
+            <li><a href="foredrag.html" class="active">Foredrag</a></li>
+            <li><a href="boeger.html">B&oslash;ger</a></li>
+            <li><a href="poesi.html">Poesi</a></li>
+            <li><a href="filosofi.html">Filosofi</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <section class="page-hero" data-reveal>
+        <h1>Foredrag.</h1>
+    </section>
+
+    <!-- Split: text left, image right -->
+    <section class="split">
+        <div class="split-text" data-reveal>
+            <h2>Poesi som foredrag</h2>
+            <p>Emil Salzer holder foredrag og opl&aelig;sninger p&aring; skoler, gymnasier, biblioteker, festivaler og private arrangementer. Hans foredrag kredser om ytringsfrihed, identitet, kultur og det at turde st&aring; ved sine ord &mdash; ogs&aring; n&aring;r de g&oslash;r ondt.</p>
+            <p>Salzer binder digtene sammen med fort&aelig;llinger fra sit eget liv: opv&aelig;ksten i Randers, alkoholmisbruget, vejen ud &mdash; og den poesi, der fulgte med.</p>
+        </div>
+        <div class="split-image">
+            <img src="images/foredrag-1.jpg" alt="Emil Salzer holder foredrag for publikum" loading="lazy">
+        </div>
+    </section>
+
+    <!-- Wide foredrag image -->
+    <div class="wide-image">
+        <img src="images/foredrag-3.jpg" alt="Emil Salzer l&aelig;ser op fra sin bog" loading="lazy">
+    </div>
+
+    <div class="content" data-reveal>
+        <h2>Temaer</h2>
+        <p>Emil Salzers foredrag kan tilpasses publikum og anledning. Typiske temaer inkluderer:</p>
+        <p><strong>Kultur og identitet</strong> &mdash; Hvad sker der, n&aring;r kultur bliver et v&aring;ben? Om parallelsamfund, integration og de historier, vi ikke t&oslash;r fort&aelig;lle.</p>
+        <p><strong>Ytringsfrihed og censur</strong> &mdash; Gentofte-sagen og kampen for at digte frit. Om gr&aelig;nserne for kunst og den politiske korrekthed.</p>
+        <p><strong>Misbrug og identitet</strong> &mdash; Fra alkoholmisbrug som 9-&aring;rig til digter og filosof. En personlig fort&aelig;lling om at finde sig selv.</p>
+        <p><strong>K&aelig;rlighed til medmennesket</strong> &mdash; Om frihed, n&aelig;stek&aelig;rlighed og det at turde give plads til sin n&aelig;ste.</p>
+
+        <h2>Praktisk</h2>
+        <p>Foredrag varer typisk 45&ndash;90 minutter inkl. opl&aelig;sning og sp&oslash;rgsm&aring;l. Kan tilpasses fra intim salon til st&oslash;rre arrangmenter. Honorar efter aftale.</p>
+    </div>
+
+    <section class="cta-section" data-reveal>
+        <h2>Book Emil til dit n&aelig;ste arrangement</h2>
+        <p>Presse, TV, debat og &oslash;vrige henvendelser</p>
+        <a href="kontakt.html" class="cta-button">Kontakt Emil</a>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-col">
+            <h4>Emil Salzer</h4>
+            <p>Digter og filosof</p>
+            <p class="footer-credit">Website sat op af Steven Wensley<br>2026 &copy; Emil Salzer</p>
+        </div>
+        <div class="footer-col">
+            <h4>Navigation</h4>
+            <a href="foredrag.html">Foredrag</a>
+            <a href="boeger.html">B&oslash;ger</a>
+            <a href="poesi.html">Poesi</a>
+            <a href="filosofi.html">Filosofi</a>
+            <a href="kontakt.html">Kontakt</a>
+        </div>
+        <div class="footer-col">
+            <p>Presse, TV, debat og &oslash;vrige henvendelser:</p>
+            <a href="mailto:thesalzer@gmail.com" class="email">thesalzer@gmail.com</a>
+        </div>
+        <div class="footer-col">
+            <h4>F&oslash;lg med</h4>
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+        </div>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); observer.unobserve(e.target); }});
+        }, { threshold: 0.15 });
+        document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
+    });
+    </script>
 </body>
 </html>
