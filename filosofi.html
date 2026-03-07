@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Filosofi — Emil Salzer</title>
+    <title>Filosofi &mdash; Emil Salzer</title>
     <meta name="description" content="Emil Salzers filosofi om frihed, ytringsfrihed og k&aelig;rlighed til medmennesket. L&aelig;s om Gentofte-sagen og hans taler.">
     <meta name="view-transition" content="same-origin">
     <link rel="canonical" href="https://emilsalzer.dk/filosofi.html">
-    <meta property="og:title" content="Filosofi — Emil Salzer">
+    <meta property="og:title" content="Filosofi &mdash; Emil Salzer">
     <meta property="og:description" content="Om frihed, ytringsfrihed og k&aelig;rlighed til medmennesket.">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
@@ -17,16 +17,18 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'Times New Roman', Times, Georgia, serif; font-size: 16px; line-height: 1.7; color: var(--black); background: var(--white); -webkit-font-smoothing: antialiased; }
 
-        .nav { display: flex; justify-content: space-between; align-items: center; padding: 24px 48px; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--white); z-index: 100; }
-        .nav-logo { font-size: 22px; font-weight: 700; letter-spacing: 0.5px; color: var(--black); text-decoration: none; }
-        .nav-links { display: flex; gap: 32px; list-style: none; }
-        .nav-links a { font-size: 15px; color: var(--black); text-decoration: none; transition: opacity 0.2s; }
+        /* === NAV (Checkpoint 1) === */
+        .nav { display: flex; justify-content: space-between; align-items: center; padding: 16px 48px; position: sticky; top: 0; background: var(--white); z-index: 100; box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06); }
+        .nav-logo { font-size: 32px; font-weight: 700; letter-spacing: 0.5px; color: var(--black); text-decoration: none; }
+        .nav-links { display: flex; gap: 40px; list-style: none; }
+        .nav-links a { font-size: 16px; color: var(--black); text-decoration: none; transition: opacity 0.2s; }
         .nav-links a:hover { opacity: 0.6; }
         .nav-links a.active { font-weight: 700; }
         .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
         .hamburger span { width: 24px; height: 2px; background: var(--black); transition: 0.3s; }
 
-        .page-hero { text-align: center; padding: 80px 48px 40px; }
+        /* Checkpoint 7.1: Equal spacing menu→heading and heading→text */
+        .page-hero { text-align: center; padding: 48px 48px 32px; }
         .page-hero h1 { font-size: clamp(48px, 6vw, 72px); font-weight: 700; line-height: 1.1; }
 
         .content {
@@ -73,24 +75,28 @@
             border: none;
         }
 
-        .footer { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 40px; padding: 60px 48px; border-top: 1px solid var(--border); font-size: 14px; }
-        .footer-col h4 { font-weight: 700; font-size: 14px; margin-bottom: 12px; }
-        .footer-col p, .footer-col a { color: var(--grey); text-decoration: none; line-height: 2; display: block; }
-        .footer-col a:hover { color: var(--black); }
-        .footer-col .email { font-size: 18px; font-weight: 700; color: var(--black); }
-        .footer-credit { font-size: 12px; color: #999; margin-top: 8px; }
+        /* === FOOTER (Checkpoint 2) === */
+        .footer { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 40px; padding: 60px 48px; font-size: 14px; }
+        .footer-col h4 { font-weight: 700; font-size: 14px; margin-bottom: 8px; }
+        .footer-col p, .footer-col a { color: var(--black); text-decoration: none; line-height: 1.8; display: block; }
+        .footer-col a { transition: font-weight 0.15s; }
+        .footer-col a:hover { font-weight: 700; }
+        .footer-col .email { font-size: 24px; font-weight: 700; color: var(--black); }
+        .footer-col-last { border-left: 1px solid var(--black); padding-left: 40px; }
+        .footer-credit { font-size: 12px; color: var(--black); margin-top: 40px; }
 
         [data-reveal] { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
         [data-reveal].revealed { opacity: 1; transform: translateY(0); }
 
         @media (max-width: 900px) {
-            .nav { padding: 20px 24px; }
+            .nav { padding: 14px 24px; }
             .nav-links { display: none; }
-            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--border); padding: 24px; gap: 20px; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--border); padding: 24px; gap: 20px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06); }
             .hamburger { display: flex; }
-            .page-hero { padding: 48px 24px 24px; }
+            .page-hero { padding: 32px 24px 24px; }
             .content { padding: 0 24px 60px; }
             .footer { grid-template-columns: 1fr 1fr; padding: 40px 24px; }
+            .footer-col-last { border-left: none; padding-left: 0; border-top: 1px solid var(--black); padding-top: 24px; }
         }
         @media (max-width: 560px) { .footer { grid-template-columns: 1fr; } }
         @view-transition { navigation: auto; }
@@ -121,7 +127,7 @@
         <div data-reveal>
             <p>Emil Salzer begyndte at skrive i 2020 efter at v&aelig;re brudt ud af et alkoholmisbrug, der stod p&aring;, siden han var ni &aring;r gammel. I podcasten <em>Pilest&aelig;de</em> beretter han om en opv&aelig;kst i Jennemparken, Randers, som var pr&aelig;get af bosniske og albanske krigsflygtninge, en h&aring;rd MENAPT-indvandring og Hells Angels rockerborg.</p>
 
-            <blockquote>N&aring;r du kommer ud af et misbrug, st&aring;r du nogen sammen med samvittigheden og bliver n&oslash;dt til at kigge p&aring;, hvad sandheden er i dig og i verden omkring dig.<br>&mdash; Salzer til Berlingske</blockquote>
+            <blockquote>N&aring;r du kommer ud af et misbrug, st&aring;r du nogen sammen med samvittigheden og bliver n&oslash;dt til at kigge p&aring;, hvad sandheden er i dig og i verden omkring dig.<br>&ndash; Salzer til Berlingske</blockquote>
 
             <p>S&aring; da covidpandemien stod p&aring;, begyndte Salzer at reflektere over, hvad vores frihed og medmenneskelighed er v&aelig;rd. De efterf&oslash;lgende &aring;rs tendenser med en digitalt forst&aelig;rket cancel-culture fik ham ligeledes til at unders&oslash;ge mekanismerne for, hvorn&aring;r vi mennesker begynder at dele hinanden op i rene og urene. H&oslash;r Emil Salzer fort&aelig;lle om samfundet 2020&ndash;2024 her:</p>
         </div>
@@ -140,9 +146,9 @@
         <div data-reveal>
             <h2>Gentofte-sagen</h2>
 
-            <p>Emil Salzer kom ombord p&aring; et projekt af Gentofte Kommune, hvor han &mdash; sammen med en r&aelig;kke andre digtere &mdash; skulle bidrage med digte til en antologi, som havde til form&aring;l at spr&aelig;nge rammer for, hvad poesi kan i den frie kunsts navn.</p>
+            <p>Emil Salzer kom ombord p&aring; et projekt af Gentofte Kommune, hvor han &ndash; sammen med en r&aelig;kke andre digtere &ndash; skulle bidrage med digte til en antologi, som havde til form&aring;l at spr&aelig;nge rammer for, hvad poesi kan i den frie kunsts navn.</p>
 
-            <p>Da Gentofte Kommune l&aelig;ste Emil Salzers digt &lsquo;Fjerde b&oslash;lge&rsquo;, m&aring;tte de tr&aelig;kke pr&aelig;missen om fri kunst tilbage. F&oslash;rst kaldte de det diskriminerende. Imod Salzers indvendig &aelig;ndrede de forklaring til, at digtets sidste vers er &ldquo;hadtale overfor transpersoner&rdquo;, da det skildrer et potentielt k&oslash;nsskifte for at opn&aring; et privilegium &mdash; og ikke en k&oslash;nsidentitet.</p>
+            <p>Da Gentofte Kommune l&aelig;ste Emil Salzers digt &lsquo;Fjerde b&oslash;lge&rsquo;, m&aring;tte de tr&aelig;kke pr&aelig;missen om fri kunst tilbage. F&oslash;rst kaldte de det diskriminerende. Imod Salzers indvendig &aelig;ndrede de forklaring til, at digtets sidste vers er &ldquo;hadtale overfor transpersoner&rdquo;, da det skildrer et potentielt k&oslash;nsskifte for at opn&aring; et privilegium &ndash; og ikke en k&oslash;nsidentitet.</p>
 
             <p>Salzer forklarede, at ytringsfriheden ville st&aring; et d&aring;rligt sted, hvis man ikke i digterkunsten m&aring;tte skildre noget, som kan forekomme i virkeligheden. Her n&aelig;vnte Salzer eksempler p&aring; k&oslash;nsskifte i sportens verden, inden for prostitutionen, norske studerende, der skiftede k&oslash;n for at blive optaget p&aring; k&oslash;nskvoterede prestigestudier og d&oslash;mte m&aelig;nd, som hellere vil afsone i kvindef&aelig;ngsler.</p>
 
@@ -185,7 +191,7 @@
             <p>Presse, TV, debat og &oslash;vrige henvendelser:</p>
             <a href="mailto:thesalzer@gmail.com" class="email">thesalzer@gmail.com</a>
         </div>
-        <div class="footer-col">
+        <div class="footer-col footer-col-last">
             <h4>F&oslash;lg med</h4>
             <a href="#">Facebook</a>
             <a href="#">Instagram</a>

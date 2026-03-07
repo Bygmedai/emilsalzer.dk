@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emil Salzer — Digter og filosof</title>
+    <title>Emil Salzer &mdash; Digter og filosof</title>
     <meta name="description" content="Emil Salzer er digter, filosof og foredragsholder. Oplev hans poesi, filosofi og foredrag.">
     <meta name="view-transition" content="same-origin">
     <link rel="canonical" href="https://emilsalzer.dk/">
-    <meta property="og:title" content="Emil Salzer — Digter og filosof">
+    <meta property="og:title" content="Emil Salzer &mdash; Digter og filosof">
     <meta property="og:description" content="Emil Salzer er digter, filosof og foredragsholder. Oplev hans poesi, filosofi og foredrag.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://emilsalzer.dk/">
@@ -34,20 +34,20 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* === NAV === */
+        /* === NAV (Checkpoint 1) === */
         .nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 24px 48px;
-            border-bottom: 1px solid var(--border);
+            padding: 16px 48px;
             position: sticky;
             top: 0;
             background: var(--white);
             z-index: 100;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
         }
         .nav-logo {
-            font-size: 22px;
+            font-size: 32px;
             font-weight: 700;
             letter-spacing: 0.5px;
             color: var(--black);
@@ -55,11 +55,11 @@
         }
         .nav-links {
             display: flex;
-            gap: 32px;
+            gap: 40px;
             list-style: none;
         }
         .nav-links a {
-            font-size: 15px;
+            font-size: 16px;
             color: var(--black);
             text-decoration: none;
             transition: opacity 0.2s;
@@ -83,7 +83,7 @@
             transition: 0.3s;
         }
 
-        /* === HERO === */
+        /* === HERO (Checkpoint 3.1) === */
         .hero {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -96,18 +96,62 @@
             justify-content: center;
             padding: 80px 64px;
         }
-        .hero-title {
-            font-size: clamp(48px, 6vw, 80px);
-            font-weight: 700;
-            line-height: 1.05;
-            margin-bottom: 32px;
-        }
-        .hero-subtitle {
-            font-size: 17px;
-            line-height: 1.8;
+        .hero-tagline {
+            font-size: 15px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
             color: var(--grey);
-            max-width: 440px;
+            margin-bottom: 20px;
         }
+        .hero-title {
+            font-size: clamp(56px, 7vw, 96px);
+            font-weight: 700;
+            line-height: 1.0;
+            margin-bottom: 40px;
+        }
+        .hero-quote {
+            font-style: italic;
+            font-size: 17px;
+            line-height: 1.7;
+            color: var(--black);
+            margin-bottom: 12px;
+            max-width: 480px;
+        }
+        .hero-quote-source {
+            font-size: 14px;
+            color: var(--grey);
+            margin-bottom: 40px;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            display: inline-block;
+            padding: 14px 40px;
+            background: var(--black);
+            color: var(--white);
+            text-decoration: none;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 15px;
+            letter-spacing: 0.5px;
+            transition: opacity 0.2s;
+        }
+        .btn-primary:hover { opacity: 0.8; }
+        .btn-secondary {
+            display: inline-block;
+            padding: 14px 40px;
+            background: transparent;
+            color: var(--black);
+            text-decoration: none;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 15px;
+            letter-spacing: 0.5px;
+            border: 1px solid var(--black);
+            transition: opacity 0.2s;
+        }
+        .btn-secondary:hover { opacity: 0.6; }
         .hero-image {
             position: relative;
             overflow: hidden;
@@ -119,124 +163,118 @@
             object-position: center top;
         }
 
-        /* === SECTIONS === */
-        .section {
-            padding: 100px 48px;
+        /* === BERLINGSKE BANNER (Checkpoint 3.2) === */
+        .banner {
+            background: var(--black);
+            padding: 60px 48px;
+            text-align: center;
         }
-        .section-divider {
+        .banner p {
+            font-size: clamp(22px, 3vw, 32px);
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1.5;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        /* === FULLSCREEN IMAGE (Checkpoint 3.3 + 3.5) === */
+        .fullscreen-image {
             position: relative;
             width: 100%;
-            height: 60vh;
+            height: 80vh;
             overflow: hidden;
         }
-        .section-divider img {
+        .fullscreen-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: grayscale(20%) brightness(0.95);
+        }
+        .fullscreen-image.crop-bottom img {
+            object-position: center 40%;
         }
 
-        /* === PORTRAIT SECTION === */
-        .portrait-section {
+        /* === SPLITSCREEN SECTIONS (Checkpoint 3.4) === */
+        .split-sections {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 0;
-            min-height: 70vh;
         }
-        .portrait-image {
-            overflow: hidden;
-        }
-        .portrait-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .portrait-text {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+        .split-box {
             padding: 80px 64px;
         }
-        .portrait-text h2 {
-            font-size: clamp(32px, 4vw, 48px);
-            font-weight: 700;
-            margin-bottom: 24px;
-            line-height: 1.15;
+        .split-box.white-bg {
+            background: var(--white);
         }
-        .portrait-text p {
-            font-size: 16px;
-            line-height: 1.8;
-            color: var(--grey);
-            max-width: 440px;
-        }
-        .portrait-text .quote {
-            font-style: italic;
-            font-size: 18px;
-            color: var(--black);
-            margin-top: 32px;
-            padding-left: 20px;
-            border-left: 2px solid var(--black);
-        }
-
-        /* === CTA SECTION === */
-        .cta-section {
-            text-align: center;
-            padding: 120px 48px;
+        .split-box.grey-bg {
             background: var(--light-grey);
         }
-        .cta-section h2 {
-            font-size: clamp(28px, 3.5vw, 44px);
+        .split-box h2 {
+            font-size: clamp(28px, 3.5vw, 40px);
             font-weight: 700;
-            margin-bottom: 16px;
+            margin-bottom: 28px;
+            line-height: 1.2;
         }
-        .cta-section p {
+        .split-box p {
             font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: var(--black);
+        }
+        .split-box .quote {
+            font-style: italic;
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--black);
+            margin: 24px 0;
+        }
+        .split-box .quote-source {
+            font-size: 14px;
             color: var(--grey);
-            margin-bottom: 32px;
+            font-style: italic;
         }
-        .cta-button {
-            display: inline-block;
-            padding: 14px 40px;
-            background: var(--black);
-            color: var(--white);
-            text-decoration: none;
-            font-family: 'Times New Roman', Times, serif;
-            font-size: 15px;
-            letter-spacing: 0.5px;
-            transition: opacity 0.2s;
+        .split-box .btn-primary,
+        .split-box .btn-secondary {
+            margin-top: 16px;
         }
-        .cta-button:hover { opacity: 0.8; }
 
-        /* === FOOTER === */
+        /* === FOOTER (Checkpoint 2) === */
         .footer {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr;
             gap: 40px;
             padding: 60px 48px;
-            border-top: 1px solid var(--border);
             font-size: 14px;
         }
         .footer-col h4 {
             font-weight: 700;
             font-size: 14px;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
         .footer-col p, .footer-col a {
-            color: var(--grey);
+            color: var(--black);
             text-decoration: none;
-            line-height: 2;
+            line-height: 1.8;
             display: block;
         }
-        .footer-col a:hover { color: var(--black); }
+        .footer-col a {
+            transition: font-weight 0.15s;
+        }
+        .footer-col a:hover {
+            font-weight: 700;
+        }
         .footer-col .email {
-            font-size: 18px;
+            font-size: 24px;
             font-weight: 700;
             color: var(--black);
         }
+        .footer-col-last {
+            border-left: 1px solid var(--black);
+            padding-left: 40px;
+        }
         .footer-credit {
             font-size: 12px;
-            color: #999;
-            margin-top: 8px;
+            color: var(--black);
+            margin-top: 40px;
         }
 
         /* === SCROLL REVEAL === */
@@ -252,7 +290,7 @@
 
         /* === RESPONSIVE === */
         @media (max-width: 900px) {
-            .nav { padding: 20px 24px; }
+            .nav { padding: 14px 24px; }
             .nav-links { display: none; }
             .nav-links.open {
                 display: flex;
@@ -265,6 +303,7 @@
                 border-bottom: 1px solid var(--border);
                 padding: 24px;
                 gap: 20px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
             }
             .hamburger { display: flex; }
 
@@ -281,31 +320,34 @@
                 height: 50vh;
             }
 
-            .portrait-section {
+            .banner { padding: 48px 24px; }
+
+            .fullscreen-image { height: 50vh; }
+
+            .split-sections {
                 grid-template-columns: 1fr;
             }
-            .portrait-text {
+            .split-box {
                 padding: 48px 24px;
-                order: 1;
             }
-            .portrait-image {
-                order: 2;
-                height: 50vh;
-            }
-
-            .section { padding: 60px 24px; }
-            .section-divider { height: 40vh; }
-            .cta-section { padding: 80px 24px; }
 
             .footer {
                 grid-template-columns: 1fr 1fr;
                 padding: 40px 24px;
             }
+            .footer-col-last {
+                border-left: none;
+                padding-left: 0;
+                border-top: 1px solid var(--black);
+                padding-top: 24px;
+            }
         }
 
         @media (max-width: 560px) {
             .footer { grid-template-columns: 1fr; }
-            .hero-title { font-size: 40px; }
+            .hero-title { font-size: 48px; }
+            .hero-buttons { flex-direction: column; }
+            .hero-buttons a { text-align: center; }
         }
 
         /* View Transitions */
@@ -333,42 +375,58 @@
         </ul>
     </nav>
 
-    <!-- HERO: Tekst venstre, billede højre -->
+    <!-- HERO (3.1): Text + image split -->
     <section class="hero">
         <div class="hero-text" data-reveal>
+            <p class="hero-tagline">Digte, filosofi, frihed siden 2020</p>
             <h1 class="hero-title">Emil<br>Salzer.</h1>
-            <p class="hero-subtitle">Digter og filosof. Emil Salzer skriver om kultur, identitet og det at v&aelig;re menneske i en tid, hvor meningerne er h&oslash;jere end eftertanken. Han holder foredrag, udkommer med digtsamlinger og fylder debatterne med poesi.</p>
+            <p class="hero-quote">Poesien har altid v&aelig;ret den fattige mands sv&aelig;rd. Hvis vi erstatter det med et papsv&aelig;rd af korrekthedsfrygt, s&aring; st&aring;r kunstens kraft uden potens.</p>
+            <p class="hero-quote-source">&ndash; interview, Kontrast</p>
+            <div class="hero-buttons">
+                <a href="poesi.html" class="btn-primary">L&aelig;s digte</a>
+                <a href="foredrag.html" class="btn-secondary">Book foredrag</a>
+            </div>
         </div>
         <div class="hero-image">
             <img src="images/forside-1.jpg" alt="Emil Salzer, portr&aelig;t" loading="eager">
         </div>
     </section>
 
-    <!-- DIVIDER: Graffiti-bro -->
-    <div class="section-divider">
-        <img src="images/forside-3.jpg" alt="Graffiti under bro — Politisk Hykleri" loading="lazy">
+    <!-- BERLINGSKE BANNER (3.2) -->
+    <div class="banner" data-reveal>
+        <p>Som Berlingskes huspoet l&oslash;fter Emil Salzer standarderne for poesiens udforming af kulturen.</p>
     </div>
 
-    <!-- PORTRAIT SECTION: Close-up + tekst -->
-    <section class="portrait-section">
-        <div class="portrait-image">
-            <img src="images/forside-2.jpg" alt="Emil Salzer, n&aelig;rbillede" loading="lazy">
-        </div>
-        <div class="portrait-text" data-reveal>
-            <h2>N&aring;r du kommer ud af et misbrug, st&aring;r du nogen sammen med samvittigheden.</h2>
-            <p>Emil Salzer begyndte at skrive i 2020 efter at v&aelig;re brudt ud af et alkoholmisbrug, der stod p&aring;, siden han var ni &aring;r gammel. I podcasten <em>Pilest&aelig;de</em> beretter han om en opv&aelig;kst i Jennemparken, Randers, pr&aelig;get af bosniske og albanske krigsflygtning, h&aring;rd MENAPT-indvandring og Hells Angels rockerborg.</p>
-            <p class="quote">&ldquo;Og bliver n&oslash;dt til at kigge p&aring;, hvad sandheden er i dig og i verden omkring dig.&rdquo;<br>&mdash; Salzer til Berlingske</p>
-        </div>
-    </section>
+    <!-- FULLSCREEN EYE IMAGE (3.3) -->
+    <div class="fullscreen-image">
+        <img src="images/forside-2.jpg" alt="Emil Salzer, n&aelig;rbillede" loading="lazy">
+    </div>
 
-    <!-- CTA -->
-    <section class="cta-section" data-reveal>
-        <h2>Book foredrag eller opl&aelig;sning</h2>
-        <p>Presse, TV, debat og &oslash;vrige henvendelser</p>
-        <a href="kontakt.html" class="cta-button">Kontakt Emil</a>
-    </section>
+    <!-- SPLITSCREEN SECTIONS (3.4) -->
+    <div class="split-sections">
+        <div class="split-box white-bg" data-reveal>
+            <h2>Digte, der taler tidens toner</h2>
+            <p>I hvert digt g&aring;r Salzer kompromisl&oslash;st efter at afsl&oslash;re tiden &ndash; n&aelig;rmest som ville han fl&aelig;nse og dokumentere den p&aring; samme tid. Han er definerende for 20&rsquo;ernes poesi og har efterh&aring;nden forfattet en lang r&aelig;kke digte, som har ant&aelig;ndt samfundsdebatter.</p>
+            <p class="quote">N&aring;r jeg skriver digte, s&aring; installerer jeg symboler, der bliver til et spejl for hvert lag af mening. Det er ikke sikkert, du kan lide, hvad du ser i spejlet, men du f&aring;r en refleksion.</p>
+            <p class="quote-source">&ndash; interview, BT og Sj&aelig;llandske Nyheder</p>
+            <p>Dyk ned i en h&aring;ndplukket serie af Emil Salzers skels&aelig;ttende poesi her.</p>
+            <a href="poesi.html" class="btn-primary">L&aelig;s digte</a>
+        </div>
+        <div class="split-box grey-bg" data-reveal>
+            <h2>En evig kamp for frihed</h2>
+            <p>I sine &lsquo;Syv taler&rsquo; definerede Emil Salzer frihed som k&aelig;rlighed til medmennesket:</p>
+            <p class="quote">Frihed kommer af tillid &ndash; forst&aring;elsen, at vi hver is&aelig;r skaber mest v&aelig;rdi for hinanden, n&aring;r vi kan udleve eget potentiale. Sandhedens totale natur kan aldrig rummes af &eacute;t menneske, derfor har vi brug for hinanden til at lyse med syn de steder, vi ikke selv forst&aring;r. Vores f&aelig;lles potentiale &aring;bnes, n&aring;r vi kan udleve vort eget.</p>
+            <p>Salzers virke rummer en konceptuel sprogudvikling; Frisj&aelig;l, lyttemod, skamhumanisme og digisocio-sapiens &ndash; p&aring; samme tid bruger han sin stemme i debatten til at g&oslash;re op med eksisterende begrebers uhensigtsm&aelig;ssigheder.</p>
+            <a href="filosofi.html" class="btn-secondary">L&aelig;s filosofi</a>
+        </div>
+    </div>
 
-    <!-- FOOTER -->
+    <!-- FULLSCREEN POLITISK HYKLERI (3.5) -->
+    <div class="fullscreen-image crop-bottom">
+        <img src="images/forside-3.jpg" alt="Graffiti under bro &mdash; Politisk Hykleri" loading="lazy">
+    </div>
+
+    <!-- FOOTER (Checkpoint 2) -->
     <footer class="footer">
         <div class="footer-col">
             <h4>Emil Salzer</h4>
@@ -387,7 +445,7 @@
             <p>Presse, TV, debat og &oslash;vrige henvendelser:</p>
             <a href="mailto:thesalzer@gmail.com" class="email">thesalzer@gmail.com</a>
         </div>
-        <div class="footer-col">
+        <div class="footer-col footer-col-last">
             <h4>F&oslash;lg med</h4>
             <a href="#">Facebook</a>
             <a href="#">Instagram</a>
