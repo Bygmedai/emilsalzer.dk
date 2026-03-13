@@ -1,0 +1,59 @@
+name: Build & Deploy
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: npm ci
+
+      - name: Build 11ty
+        run: npx @11ty/eleventy
+
+      - name: Verify output
+        run: |
+          echo "=== YAML leakage ==="
+          if grep -rl 'jsonLd: |' _site/ 2>/dev/null; then echo "FAIL: YAML pipe leakage"; exit 1; fi
+          if grep -rl '^---$' _site/ 2>/dev/null; then echo "FAIL: frontmatter delimiter in output"; exit 1; fi
+
+          echo "=== Style tag balance ==="
+          for f in $(find _site -name '*.html'); do
+            open=$(grep -c '<style' "$f" 2>/dev/null || echo 0)
+            close=$(grep -c '</style>' "$f" 2>/dev/null || echo 0)
+            if [ "$open" != "$close" ]; then echo "FAIL: Unclosed style in $f"; exit 1; fi
+          done
+
+          echo "All checks passed"
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

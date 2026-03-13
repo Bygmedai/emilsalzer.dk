@@ -1,0 +1,43 @@
+{
+  "name": "Emil Salzer",
+  "shortName": "Salzer",
+  "domain": "emilsalzer.dk",
+  "url": "https://emilsalzer.dk",
+  "description": "Emil Salzer er digter, filosof og foredragsholder.",
+  "email": "thesalzer@gmail.com",
+  "logo": {
+    "type": "text",
+    "text": "Salzer"
+  },
+  "fonts": {
+    "heading": "'Times New Roman', Times, Georgia, serif",
+    "body": "'Times New Roman', Times, Georgia, serif"
+  },
+  "skin": {
+    "file": "emilsalzer.css"
+  },
+  "nav": {
+    "links": [
+      { "label": "Foredrag", "url": "/foredrag/" },
+      { "label": "Bøger", "url": "/boeger/" },
+      { "label": "Poesi", "url": "/poesi/" },
+      { "label": "Filosofi", "url": "/filosofi/" },
+      { "label": "Kontakt", "url": "/kontakt/" }
+    ]
+  },
+  "footer": {
+    "tagline": "Digter og filosof",
+    "credit": "Website sat op af Steven Wensley",
+    "links": [
+      { "label": "Foredrag", "url": "/foredrag/" },
+      { "label": "Bøger", "url": "/boeger/" },
+      { "label": "Poesi", "url": "/poesi/" },
+      { "label": "Filosofi", "url": "/filosofi/" },
+      { "label": "Kontakt", "url": "/kontakt/" }
+    ],
+    "social": [
+      { "label": "Facebook", "url": "#" },
+      { "label": "Instagram", "url": "#" }
+    ]
+  }
+}

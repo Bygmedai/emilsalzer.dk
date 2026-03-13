@@ -1,0 +1,12 @@
+/* Emil Salzer — Minimalist B&W skin */
+:root {
+  --black: #1A1A1A;
+  --white: #FFFFFF;
+  --grey: #666666;
+  --light-grey: #F5F5F5;
+  --border: #E0E0E0;
+  --text: #1A1A1A;
+  --font-heading: 'Times New Roman', Times, Georgia, serif;
+  --font-body: 'Times New Roman', Times, Georgia, serif;
+  --transition: all 0.2s ease;
+}

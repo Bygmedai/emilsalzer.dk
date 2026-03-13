@@ -1,0 +1,199 @@
+---
+---
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }}</title>
+  <meta name="description" content="{{ description }}">
+  <meta name="view-transition" content="same-origin">
+  {% if canonical %}<link rel="canonical" href="{{ canonical }}">{% endif %}
+  <meta property="og:title" content="{{ ogTitle or title }}">
+  <meta property="og:description" content="{{ ogDescription or description }}">
+  <meta property="og:type" content="website">
+  {% if ogUrl %}<meta property="og:url" content="{{ ogUrl }}">{% endif %}
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/skins/{{ site.skin.file }}">
+  <style>
+    /* Layer 2: Shared nav + footer */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 48px;
+      position: sticky;
+      top: 0;
+      background: var(--white);
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    }
+    .nav-logo {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: var(--black);
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 16px;
+      color: var(--black);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .nav-links a:hover { opacity: 0.6; }
+    .nav-links a.active { font-weight: 700; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      width: 24px;
+      height: 2px;
+      background: var(--black);
+      transition: 0.3s;
+    }
+
+    /* Footer */
+    .footer {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 40px;
+      padding: 60px 48px;
+      font-size: 14px;
+    }
+    .footer-col h4 {
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+    .footer-col p, .footer-col a {
+      color: var(--black);
+      text-decoration: none;
+      line-height: 1.8;
+      display: block;
+    }
+    .footer-col a { transition: font-weight 0.15s; }
+    .footer-col a:hover { font-weight: 700; }
+    .footer-col .email {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--black);
+    }
+    .footer-col-last {
+      border-left: 1px solid var(--black);
+      padding-left: 40px;
+    }
+    .footer-credit {
+      font-size: 12px;
+      color: var(--black);
+      margin-top: 40px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .nav { padding: 14px 24px; }
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        border-bottom: 1px solid var(--border);
+        padding: 24px;
+        gap: 20px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+      }
+      .hamburger { display: flex; }
+
+      .footer {
+        grid-template-columns: 1fr 1fr;
+        padding: 40px 24px;
+      }
+      .footer-col-last {
+        border-left: none;
+        padding-left: 0;
+        border-top: 1px solid var(--black);
+        padding-top: 24px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .footer { grid-template-columns: 1fr; }
+    }
+  </style>
+  {% if extraHead %}{{ extraHead | safe }}{% endif %}
+  {% if jsonLd %}
+  <script type="application/ld+json">{{ jsonLd | safe }}</script>
+  {% endif %}
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="/" class="nav-logo">{{ site.logo.text }}</a>
+    <button class="hamburger" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      {% for link in site.nav.links %}
+      <li><a href="{{ link.url }}"{% if link.url == page.url %} class="active"{% endif %}>{{ link.label }}</a></li>
+      {% endfor %}
+    </ul>
+  </nav>
+
+  {{ content | safe }}
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-col">
+      <h4>{{ site.name }}</h4>
+      <p>{{ site.footer.tagline }}</p>
+      <p class="footer-credit">{{ site.footer.credit }}<br>2026 &copy; {{ site.name }}</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      {% for link in site.footer.links %}
+      <a href="{{ link.url }}">{{ link.label }}</a>
+      {% endfor %}
+    </div>
+    <div class="footer-col">
+      <p>Presse, TV, debat og &oslash;vrige henvendelser:</p>
+      <a href="mailto:{{ site.email }}" class="email">{{ site.email }}</a>
+    </div>
+    <div class="footer-col footer-col-last">
+      <h4>F&oslash;lg med</h4>
+      {% for social in site.footer.social %}
+      <a href="{{ social.url }}">{{ social.label }}</a>
+      {% endfor %}
+    </div>
+  </footer>
+
+  <!-- Scroll reveal -->
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); observer.unobserve(e.target); }});
+    }, { threshold: 0.15 });
+    document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
+  });
+  </script>
+  {% if extraScripts %}{{ extraScripts | safe }}{% endif %}
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+---
+layout: base.njk
+title: "Bøger"
+description: "Emil Salzers bøger og digtsamlinger. Kommer snart."
+ogTitle: "Bøger — Emil Salzer"
+ogDescription: "Emil Salzers bøger og digtsamlinger."
+extraHead: |
+  <style>
+      .placeholder {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          min-height: 60vh;
+          text-align: center;
+          padding: 80px 48px;
+      }
+      .placeholder h1 {
+          font-size: clamp(48px, 6vw, 72px);
+          font-weight: 700;
+          margin-bottom: 24px;
+          line-height: 1.1;
+      }
+      .placeholder p {
+          font-size: 17px;
+          color: var(--grey);
+          max-width: 420px;
+          line-height: 1.7;
+      }
+      .placeholder .cta-link {
+          display: inline-block;
+          margin-top: 32px;
+          padding: 14px 40px;
+          background: var(--black);
+          color: var(--white);
+          text-decoration: none;
+          font-family: 'Times New Roman', Times, serif;
+          font-size: 15px;
+          letter-spacing: 0.5px;
+          transition: opacity 0.2s;
+      }
+      .placeholder .cta-link:hover { opacity: 0.8; }
+
+      @media (max-width: 900px) {
+          .placeholder { padding: 60px 24px; }
+      }
+  </style>
+---
+
+<section class="placeholder">
+    <h1>Bøger.</h1>
+    <p>Emil Salzers bøger og digtsamlinger er på vej. Hold øje med denne side for udgivelser og bestillingsmuligheder.</p>
+    <a href="/poesi/" class="cta-link">Læs digte i mellemtiden</a>
+</section>
