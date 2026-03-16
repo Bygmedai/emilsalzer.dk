@@ -1,57 +1,94 @@
 ---
 layout: base.njk
-title: "Bøger"
-description: "Emil Salzers bøger og digtsamlinger. Kommer snart."
+title: "Bøger — Emil Salzer"
+description: "Emil Salzers bøger og digtsamlinger. Kaosviol, Syv taler, Sjælecancer, Bukkede nakker og Uvaccineret."
 canonical: "https://emilsalzer.dk/boeger/"
 ogTitle: "Bøger — Emil Salzer"
 ogDescription: "Emil Salzers bøger og digtsamlinger."
 ogUrl: "https://emilsalzer.dk/boeger/"
-ogImage: "https://emilsalzer.dk/assets/images/forside-2.jpg"
+ogImage: "https://emilsalzer.dk/assets/images/boeger/kaosviol.jpg"
 extraHead: |
   <style>
-      .placeholder {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          min-height: 60vh;
+      .books-header {
           text-align: center;
-          padding: 80px 48px;
+          padding: 60px 48px 40px;
       }
-      .placeholder h1 {
+      .books-header h1 {
           font-size: clamp(48px, 6vw, 72px);
           font-weight: 700;
-          margin-bottom: 24px;
           line-height: 1.1;
       }
-      .placeholder p {
-          font-size: 17px;
-          color: var(--grey);
-          max-width: 420px;
-          line-height: 1.7;
+      .books-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 60px 48px;
+          max-width: 900px;
+          margin: 0 auto;
+          padding: 0 48px 80px;
       }
-      .placeholder .cta-link {
-          display: inline-block;
-          margin-top: 32px;
-          padding: 14px 40px;
-          background: var(--black);
-          color: var(--white);
+      .book-card {
           text-decoration: none;
-          font-family: 'Times New Roman', Times, serif;
-          font-size: 15px;
-          letter-spacing: 0.5px;
-          transition: opacity 0.2s;
+          color: var(--black);
+          display: block;
       }
-      .placeholder .cta-link:hover { opacity: 0.8; }
+      .book-card:hover .book-cover {
+          transform: scale(1.02);
+      }
+      .book-meta {
+          font-size: 14px;
+          color: var(--grey);
+          margin-bottom: 12px;
+          text-align: center;
+      }
+      .book-meta strong {
+          color: var(--black);
+      }
+      .book-cover {
+          width: 100%;
+          aspect-ratio: auto;
+          display: block;
+          transition: transform 0.3s ease;
+      }
 
-      @media (max-width: 900px) {
-          .placeholder { padding: 60px 24px; }
+      @media (max-width: 600px) {
+          .books-header { padding: 40px 24px 24px; }
+          .books-grid {
+              grid-template-columns: 1fr;
+              gap: 48px;
+              padding: 0 24px 60px;
+              max-width: 400px;
+          }
       }
   </style>
 ---
 
-<section class="placeholder">
+<section class="books-header" data-reveal>
     <h1>Bøger.</h1>
-    <p>Emil Salzers bøger og digtsamlinger er på vej. Hold øje med denne side for udgivelser og bestillingsmuligheder.</p>
-    <a href="/poesi/" class="cta-link">Læs digte i mellemtiden</a>
 </section>
+
+<div class="books-grid">
+    <a href="/boeger/kaosviol/" class="book-card" data-reveal>
+        <p class="book-meta"><strong>2025</strong> / Kaosviol</p>
+        <img src="/assets/images/boeger/kaosviol.jpg" alt="Kaosviol — digtsamling af Emil Salzer" class="book-cover" loading="lazy" width="632" height="917">
+    </a>
+
+    <a href="/boeger/syv-taler/" class="book-card" data-reveal>
+        <p class="book-meta"><strong>2025</strong> / Syv taler</p>
+        <img src="/assets/images/boeger/syv-taler.jpg" alt="Syv taler af Emil Salzer" class="book-cover" loading="lazy" width="631" height="920">
+    </a>
+
+    <a href="/boeger/sjaelecancer/" class="book-card" data-reveal>
+        <p class="book-meta"><strong>2024</strong> / Sjælecancer</p>
+        <img src="/assets/images/boeger/sjaelecancer.jpg" alt="Sjælecancer — digtsamling af Emil Salzer" class="book-cover" loading="lazy" width="633" height="920">
+    </a>
+
+    <a href="/boeger/bukkede-nakker/" class="book-card" data-reveal>
+        <p class="book-meta"><strong>2023</strong> / Bukkede nakker</p>
+        <img src="/assets/images/boeger/bukkede-nakker.jpg" alt="Bukkede nakker — digtsamling af Emil Salzer" class="book-cover" loading="lazy" width="632" height="633">
+    </a>
+
+    <a href="/boeger/uvaccineret/" class="book-card" data-reveal>
+        <p class="book-meta"><strong>2022</strong> / Uvaccineret</p>
+        <img src="/assets/images/boeger/uvaccineret.jpg" alt="Uvaccineret — digtsamling af Emil Salzer" class="book-cover" loading="lazy" width="632" height="895">
+    </a>
+</div>
