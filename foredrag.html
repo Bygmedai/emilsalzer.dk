@@ -90,7 +90,7 @@
             object-position: center 20%;
         }
 
-        /* === BOOKING SECTION === */
+        /* === BOOKING SECTION — full-width, centered content, box-shadow === */
         .booking-section {
             width: 100%;
             margin: 0;
@@ -207,6 +207,7 @@
         .footer-col-last { border-left: 1px solid var(--black); padding-left: 40px; }
         .footer-credit { font-size: 12px; color: var(--black); margin-top: 40px; }
 
+        /* === REVEAL ANIMATION === */
         [data-reveal] { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
         [data-reveal].revealed { opacity: 1; transform: translateY(0); }
 
@@ -239,9 +240,14 @@
             .footer { grid-template-columns: 1fr 1fr; padding: 40px 24px; }
             .footer-col-last { border-left: none; padding-left: 0; border-top: 1px solid var(--black); padding-top: 24px; }
         }
-        @media (max-width: 560px) { .footer { grid-template-columns: 1fr; } }
+        @media (max-width: 560px) {
+            .footer { grid-template-columns: 1fr; }
+        }
+
+        /* View Transitions */
         @view-transition { navigation: auto; }
-        ::view-transition-old(root), ::view-transition-new(root) { animation-duration: 0.3s; }
+        ::view-transition-old(root),
+        ::view-transition-new(root) { animation-duration: 0.3s; }
     </style>
 </head>
 <body>
@@ -260,7 +266,7 @@
         </ul>
     </nav>
 
-    <!-- 1. SPLITSCREEN HERO -->
+    <!-- 1. SPLITSCREEN HERO: Tekst venstre, billede h&oslash;jre -->
     <section class="split-hero">
         <div class="split-hero-text" data-reveal>
             <h1>Foredraget:<br>Ytringsfrihed<br>i kunst.</h1>
@@ -278,7 +284,7 @@
         </div>
     </section>
 
-    <!-- 2. BOOKING FORM -->
+    <!-- 2. BOOKING FORM — kant-til-kant, centreret indhold, box-shadow -->
     <div class="booking-section" data-reveal>
         <div class="booking-inner">
             <h2>Book foredraget.</h2>
@@ -346,7 +352,7 @@
         </div>
     </section>
 
-    <!-- 5. FULL-WIDTH: Emil l&aelig;ser op -->
+    <!-- 5. FULL-WIDTH: Emil l&aelig;ser op — focus p&aring; Emil -->
     <div class="full-image hero-image">
         <img src="images/foredrag-3.jpg" alt="Emil Salzer l&aelig;ser op fra sin bog" loading="lazy">
     </div>

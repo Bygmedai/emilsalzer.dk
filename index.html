@@ -196,10 +196,30 @@
         }
         .fullscreen-image.uncropped img {
             height: auto;
-            object-fit: none;
+            object-fit: contain;
         }
         .fullscreen-image.crop-bottom img {
             object-position: center 40%;
+        }
+
+        /* === FULL-WIDTH HERO IMAGE (same as foredrag bottom image) === */
+        .full-image {
+            width: 100%;
+            line-height: 0;
+        }
+        .full-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .full-image.hero-image {
+            height: 70vh;
+            overflow: hidden;
+        }
+        .full-image.hero-image img {
+            height: 100%;
+            object-fit: cover;
+            object-position: center 20%;
         }
 
         /* === SPLITSCREEN SECTIONS (Checkpoint 3.4) === */
@@ -331,6 +351,8 @@
             .banner { padding: 48px 24px; }
 
             .fullscreen-image { height: 50vh; }
+            .fullscreen-image.uncropped { height: auto; }
+            .full-image.hero-image { height: 50vh; }
 
             .split-sections {
                 grid-template-columns: 1fr;
@@ -430,7 +452,7 @@
     </div>
 
     <!-- FULLSCREEN POLITISK HYKLERI (3.5) -->
-    <div class="fullscreen-image crop-bottom">
+    <div class="full-image hero-image">
         <img src="images/forside-3.jpg" alt="Graffiti under bro &mdash; Politisk Hykleri" loading="lazy">
     </div>
 
