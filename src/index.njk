@@ -116,8 +116,36 @@ extraHead: |
     height: 100%;
     object-fit: cover;
   }
+  .fullscreen-image.uncropped {
+    height: auto;
+    overflow: visible;
+  }
+  .fullscreen-image.uncropped img {
+    height: auto;
+    object-fit: contain;
+  }
   .fullscreen-image.crop-bottom img {
     object-position: center 40%;
+  }
+
+  /* === FULL-WIDTH HERO IMAGE (bottom image) === */
+  .full-image {
+    width: 100%;
+    line-height: 0;
+  }
+  .full-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .full-image.hero-image {
+    height: 70vh;
+    overflow: hidden;
+  }
+  .full-image.hero-image img {
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
   }
 
   /* === SPLIT SECTIONS === */
@@ -166,6 +194,8 @@ extraHead: |
     .hero-image { order: 2; height: 50vh; }
     .banner { padding: 48px 24px; }
     .fullscreen-image { height: 50vh; }
+    .fullscreen-image.uncropped { height: auto; }
+    .full-image.hero-image { height: 50vh; }
     .split-sections { grid-template-columns: 1fr; }
     .split-box { padding: 48px 24px; }
   }
@@ -193,7 +223,7 @@ extraHead: |
     <p class="hero-quote">Poesien har altid v&aelig;ret den fattige mands sv&aelig;rd. Hvis vi erstatter det med et papsv&aelig;rd af korrekthedsfrygt, s&aring; st&aring;r kunstens kraft uden potens.</p>
     <p class="hero-quote-source">&ndash; interview, Kontrast</p>
     <div class="hero-buttons">
-      <a href="/poesi/" class="btn-primary">L&aelig;s digte</a>
+      <a href="/boeger/" class="btn-primary" style="font-weight:700;">Se b&oslash;ger</a>
       <a href="/foredrag/" class="btn-secondary">Book foredrag</a>
     </div>
   </div>
@@ -208,7 +238,7 @@ extraHead: |
 </div>
 
 <!-- FULLSCREEN IMAGE -->
-<div class="fullscreen-image">
+<div class="fullscreen-image uncropped">
   <img src="/assets/images/forside-2.jpg" alt="Emil Salzer, n&aelig;rbillede" loading="lazy">
 </div>
 
@@ -232,6 +262,6 @@ extraHead: |
 </div>
 
 <!-- FULLSCREEN POLITISK HYKLERI -->
-<div class="fullscreen-image crop-bottom">
+<div class="full-image hero-image">
   <img src="/assets/images/forside-3.jpg" alt="Graffiti under bro &mdash; Politisk Hykleri" loading="lazy">
 </div>
