@@ -1,6 +1,6 @@
 ---
 layout: base.njk
-title: "Emil Salzer &mdash; Digter og filosof"
+title: "Emil Salzer — Digter og filosof"
 description: "Emil Salzer er digter, filosof og foredragsholder. Oplev hans poesi, filosofi og foredrag."
 canonical: "https://emilsalzer.dk/"
 ogTitle: "Emil Salzer &mdash; Digter og filosof"
@@ -196,6 +196,7 @@ extraHead: |
     .fullscreen-image { height: 50vh; }
     .fullscreen-image.uncropped { height: auto; }
     .full-image.hero-image { height: 50vh; }
+    .full-image.hero-image img { object-fit: contain; width: 100%; }
     .split-sections { grid-template-columns: 1fr; }
     .split-box { padding: 48px 24px; }
   }
@@ -250,18 +251,21 @@ extraHead: |
     <p class="quote">N&aring;r jeg skriver digte, s&aring; installerer jeg symboler, der bliver til et spejl for hvert lag af mening. Det er ikke sikkert, du kan lide, hvad du ser i spejlet, men du f&aring;r en refleksion.</p>
     <p class="quote-source">&ndash; interview, BT og Sj&aelig;llandske Nyheder</p>
     <p>Dyk ned i en h&aring;ndplukket serie af Emil Salzers skels&aelig;ttende poesi her.</p>
-    <a href="/poesi/" class="btn-primary">L&aelig;s digte</a>
+    <a href="/poesi/" class="btn-primary">L&aelig;s poesi</a>
   </div>
   <div class="split-box grey-bg" data-reveal>
     <h2>En evig kamp for frihed</h2>
     <p>I sine &lsquo;Syv taler&rsquo; definerede Emil Salzer frihed som k&aelig;rlighed til medmennesket:</p>
     <p class="quote">Frihed kommer af tillid &ndash; forst&aring;elsen, at vi hver is&aelig;r skaber mest v&aelig;rdi for hinanden, n&aring;r vi kan udleve eget potentiale. Sandhedens totale natur kan aldrig rummes af &eacute;t menneske, derfor har vi brug for hinanden til at lyse med syn de steder, vi ikke selv forst&aring;r. Vores f&aelig;lles potentiale &aring;bnes, n&aring;r vi kan udleve vort eget.</p>
     <p>Salzers virke rummer en konceptuel sprogudvikling; Frisj&aelig;l, lyttemod, skamhumanisme og digisocio-sapiens &ndash; p&aring; samme tid bruger han sin stemme i debatten til at g&oslash;re op med eksisterende begrebers uhensigtsm&aelig;ssigheder.</p>
-    <a href="/filosofi/" class="btn-secondary">L&aelig;s filosofi</a>
+    <a href="/filosofi/" class="btn-secondary" style="font-weight:bold;">Filosofi</a>
   </div>
 </div>
 
 <!-- FULLSCREEN POLITISK HYKLERI -->
-<div class="full-image hero-image">
-  <img src="/assets/images/forside-3.jpg" alt="Graffiti under bro &mdash; Politisk Hykleri" loading="lazy">
+<div class="full-image hero-image" style="position:relative;">
+  <img src="/assets/images/forside-3.jpg" alt="Graffiti under bro — Politisk Hykleri" loading="lazy">
+  <div style="position:absolute;top:0;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;z-index:1;">
+    <p style="font-family:'Times New Roman',serif;font-size:clamp(1.5rem,3vw,2.5rem);color:#fff;text-align:center;max-width:600px;padding:0 2rem;text-shadow:0 2px 8px rgba(0,0,0,0.6);">Politisk Hykleri</p>
+  </div>
 </div>
