@@ -3,7 +3,7 @@
   "shortName": "Salzer",
   "domain": "emilsalzer.dk",
   "url": "https://emilsalzer.dk",
-  "description": "Emil Salzer er digter, filosof og foredragsholder.",
+  "description": "Emil Salzer er digter og filosof.",
   "email": "thesalzer@gmail.com",
   "logo": {
     "type": "text",
@@ -36,8 +36,8 @@
       { "label": "Kontakt", "url": "/kontakt/" }
     ],
     "social": [
-      { "label": "Facebook", "url": "#" },
-      { "label": "Instagram", "url": "#" }
+      { "label": "Facebook", "url": "https://www.facebook.com/emilsalzer" },
+      { "label": "Instagram", "url": "https://www.instagram.com/emilsalzer/" }
     ]
   }
 }
