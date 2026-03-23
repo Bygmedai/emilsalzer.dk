@@ -1,10 +1,11 @@
 ---
 layout: base.njk
-title: "Kontakt"
-description: "Kontakt Emil Salzer for bookinger, foredrag, presse og øvrige henvendelser."
+eleventyComputed:
+  title: "{{ pages.kontakt.title }}"
+  description: "{{ pages.kontakt.description }}"
+  ogTitle: "{{ pages.kontakt.ogTitle }}"
+  ogDescription: "{{ pages.kontakt.ogDescription }}"
 canonical: "https://emilsalzer.dk/kontakt/"
-ogTitle: "Kontakt — Emil Salzer"
-ogDescription: "Book foredrag, oplæsning eller kontakt Emil Salzer."
 ogUrl: "https://emilsalzer.dk/kontakt/"
 ogImage: "https://emilsalzer.dk/assets/images/kontakt-1.jpg"
 extraHead: |
@@ -127,10 +128,10 @@ extraScripts: |
 <section class="contact-hero">
     <img src="/assets/images/kontakt-1.jpg" alt="Emil Salzer" class="contact-hero-bg" loading="eager">
     <div class="contact-form-wrapper">
-        <h1>Kontakt Emil.</h1>
-        <p class="subtitle">Vil du booke oplæsning, foredrag eller har en anden forespørgsel, så skriv her:</p>
+        <h1>{{ pages.kontakt.formHeading }}</h1>
+        <p class="subtitle">{{ pages.kontakt.formSubtext }}</p>
 
-        <form action="https://formspree.io/f/xaqpaepv" method="POST" id="contactForm">
+        <form action="https://formspree.io/f/{{ pages.kontakt.formEmail }}" method="POST" id="contactForm">
             <input type="hidden" name="_subject" value="Henvendelse via emilsalzer.dk">
             <input type="hidden" name="_next" value="https://emilsalzer.dk/kontakt/#tak">
 
@@ -164,7 +165,7 @@ extraScripts: |
         </form>
 
         <div class="success-message" id="successMsg">
-            Tak for din henvendelse. Emil vender tilbage hurtigst muligt.
+            {{ pages.kontakt.successMessage }}
         </div>
     </div>
 </section>
