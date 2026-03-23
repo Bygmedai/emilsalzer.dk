@@ -1,10 +1,11 @@
 ---
 layout: base.njk
-title: "Bøger — Emil Salzer"
-description: "Emil Salzers bøger og digtsamlinger. Kaosviol, Syv taler, Sjælecancer, Bukkede nakker og Uvaccineret."
+eleventyComputed:
+  title: "{{ pages.boeger.title }}"
+  description: "{{ pages.boeger.description }}"
+  ogTitle: "{{ pages.boeger.ogTitle }}"
+  ogDescription: "{{ pages.boeger.ogDescription }}"
 canonical: "https://emilsalzer.dk/boeger/"
-ogTitle: "Bøger — Emil Salzer"
-ogDescription: "Emil Salzers bøger og digtsamlinger."
 ogUrl: "https://emilsalzer.dk/boeger/"
 ogImage: "https://emilsalzer.dk/assets/images/boeger/kaosviol.jpg"
 extraHead: |
@@ -63,37 +64,14 @@ extraHead: |
 ---
 
 <section class="books-header" data-reveal>
-    <h1>Bøger.</h1>
+    <h1>{{ pages.boeger.heading }}</h1>
 </section>
 
 <div class="books-grid">
-    <a href="/boeger/kaosviol/" class="book-card" data-reveal>
-        <p class="book-meta"><strong>2026</strong> / Tre refleksioner</p>
-        <img src="/assets/images/boeger/tre-refleksioner.jpg" alt="Tre refleksioner — digtsamling af Emil Salzer" class="book-cover" loading="lazy">
+    {% for book in pages.boeger.books %}
+    <a href="{{ book.link }}" class="book-card" data-reveal>
+        <p class="book-meta"><strong>{{ book.year }}</strong> / {{ book.title }}</p>
+        <img src="{{ book.image }}" alt="{{ book.alt }}" class="book-cover" loading="lazy">
     </a>
-
-    <a href="/boeger/kaosviol/" class="book-card" data-reveal>
-        <p class="book-meta"><strong>2025</strong> / Kaosviol</p>
-        <img src="/assets/images/boeger/kaosviol.jpg" alt="Kaosviol — digtsamling af Emil Salzer" class="book-cover" loading="lazy">
-    </a>
-
-    <a href="/boeger/syv-taler/" class="book-card" data-reveal>
-        <p class="book-meta"><strong>2025</strong> / Syv taler</p>
-        <img src="/assets/images/boeger/syv-taler.jpg" alt="Syv taler af Emil Salzer" class="book-cover" loading="lazy">
-    </a>
-
-    <a href="/boeger/sjaelecancer/" class="book-card" data-reveal>
-        <p class="book-meta"><strong>2024</strong> / Sj&aelig;lecancer</p>
-        <img src="/assets/images/boeger/sjaelecancer.jpg" alt="Sjælecancer — digtsamling af Emil Salzer" class="book-cover" loading="lazy">
-    </a>
-
-    <a href="/boeger/bukkede-nakker/" class="book-card" data-reveal>
-        <p class="book-meta"><strong>2023</strong> / Bukkede nakker</p>
-        <img src="/assets/images/boeger/bukkede-nakker.jpg" alt="Bukkede nakker — digtsamling af Emil Salzer" class="book-cover" loading="lazy">
-    </a>
-
-    <a href="/boeger/uvaccineret/" class="book-card" data-reveal>
-        <p class="book-meta"><strong>2022</strong> / Uvaccineret</p>
-        <img src="/assets/images/boeger/uvaccineret.jpg" alt="Uvaccineret — digtsamling af Emil Salzer" class="book-cover" loading="lazy">
-    </a>
+    {% endfor %}
 </div>

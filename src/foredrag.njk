@@ -1,10 +1,11 @@
 ---
 layout: base.njk
-title: "Foredrag"
-description: "Book Emil Salzer til foredrag og oplæsning. Poesi, filosofi og debat leveret med intensitet og eftertanke."
+eleventyComputed:
+  title: "{{ pages.foredrag.title }}"
+  description: "{{ pages.foredrag.description }}"
+  ogTitle: "{{ pages.foredrag.ogTitle }}"
+  ogDescription: "{{ pages.foredrag.ogDescription }}"
 canonical: "https://emilsalzer.dk/foredrag/"
-ogTitle: "Foredrag — Emil Salzer"
-ogDescription: "Book Emil Salzer til foredrag og oplæsning."
 ogUrl: "https://emilsalzer.dk/foredrag/"
 ogImage: "https://emilsalzer.dk/assets/images/foredrag-1.jpg"
 extraHead: |
@@ -215,15 +216,15 @@ extraScripts: |
 <!-- 1. SPLITSCREEN HERO: Tekst venstre, billede højre -->
 <section class="split-hero">
     <div class="split-hero-text" data-reveal>
-        <h1>Foredraget:<br>Ytringsfrihed<br>i kunst.</h1>
+        <h1>{{ pages.foredrag.heading | replace("\n", "<br>") | safe }}</h1>
 
-        <p>I Danmark g&aring;r vi rundt og tror, at vi &ndash; med undtagelse af Koranloven &ndash; m&aring; ytre os, som vi vil i kunsten. Men Emil Salzer vidner om en helt anden virkelighed.</p>
+        <p>{{ pages.foredrag.intro1 }}</p>
 
-        <p class="bt-quote">Hver gang man udfordrer det herskende kulturelle narrativ, st&oslash;der man p&aring; en mur af censur. &ndash; Salzer i BT</p>
+        <p class="bt-quote">{{ pages.foredrag.btQuote }}</p>
 
-        <p>P&aring; foredraget &lsquo;Ytringsfrihed i kunst&rsquo; l&aelig;ser Emil Salzer op af sine digte, som har v&aelig;ret udsat for offentlig, privat og social censur, imens han fort&aelig;ller sin historie og reflekterer over vores tids dominerende kulturelle ideologier.</p>
+        <p>{{ pages.foredrag.intro2 }}</p>
 
-        <p>Foredraget er velegnet gymnasier, kirker, universiteter, h&oslash;jskoler, akademier, institutioner og organisationer med kulturel, kunstnerisk eller filosofisk interesse.</p>
+        <p>{{ pages.foredrag.intro3 }}</p>
     </div>
     <div class="split-hero-image">
         <img src="/assets/images/foredrag-1.jpg" alt="Emil Salzer holder foredrag for publikum">
@@ -233,9 +234,9 @@ extraScripts: |
 <!-- 2. BOOKING FORM — kant-til-kant, centreret indhold, box-shadow -->
 <div class="booking-section" data-reveal>
     <div class="booking-inner">
-        <h2>Book foredraget.</h2>
+        <h2>{{ pages.foredrag.bookingHeading }}</h2>
 
-        <form action="https://formspree.io/f/xaqpaepv" method="POST" id="bookingForm">
+        <form action="https://formspree.io/f/{{ pages.foredrag.formspreeId }}" method="POST" id="bookingForm">
             <input type="hidden" name="_subject" value="Booking af foredrag via emilsalzer.dk">
             <input type="hidden" name="_next" value="https://emilsalzer.dk/foredrag/#tak">
 
@@ -269,7 +270,7 @@ extraScripts: |
         </form>
 
         <div class="success-message" id="successMsg">
-            Tak for din henvendelse. Emil vender tilbage hurtigst muligt.
+            {{ pages.foredrag.successMessage }}
         </div>
     </div>
 </div>
@@ -281,24 +282,16 @@ extraScripts: |
 
 <!-- 4. CREDENTIAL BOXES -->
 <section class="credentials" data-reveal>
-    <div class="credential-box">
+    {% for review in pages.foredrag.reviews %}
+    <div class="credential-box{% if loop.index == 2 %} grey-bg{% endif %}">
         <div class="quote-marks">&ldquo;</div>
-        <blockquote>Et st&aelig;rkt og medrivende foredrag med recitationer i s&aelig;rklasse. Der var b&aring;de &oslash;jeblikke med eftertanksom tavshed, g&aring;sehud og grin. Publikum var helt suget ind fra start til slut, og Salzer tog deres sp&oslash;rgsm&aring;l undervejs, hvilket gjorde det hele h&oslash;jt engageret. Jeg kan varmt anbefale det til alle, som ikke er bange for at sl&aring; &oslash;rerne ud for det politisk ukorrekte.</blockquote>
-        <p class="attribution">&ndash; Anna R.</p>
+        <blockquote>{{ review.quote }}</blockquote>
+        <p class="attribution">{{ review.attribution }}</p>
     </div>
-    <div class="credential-box grey-bg">
-        <div class="quote-marks">&ldquo;</div>
-        <blockquote>Vi danskere er bare nogle gange gode til at fort&aelig;lle hinanden, at vi er tolerante og frisindede, men n&aring;r det s&aring; skal overholdes, er vi nok snarere det modsatte. Tak til Emil for at udpensle hyklerierne med en levende alvor og humor. Det her kommer til at svide i lang tid.</blockquote>
-        <p class="attribution">&ndash; Christine C.</p>
-    </div>
-    <div class="credential-box">
-        <div class="quote-marks">&ldquo;</div>
-        <blockquote>Umuligt ikke at blive provokeret klogere. Emil er et unikum.</blockquote>
-        <p class="attribution">&ndash; Michael A.</p>
-    </div>
+    {% endfor %}
 </section>
 
 <!-- 5. FULL-WIDTH: Emil læser op — focus på Emil -->
 <div class="full-image hero-image">
-    <img src="/assets/images/foredrag-3.jpg" alt="Emil Salzer l&aelig;ser op fra sin bog" loading="lazy">
+    <img src="/assets/images/foredrag-3.jpg" alt="Emil Salzer læser op fra sin bog" loading="lazy">
 </div>
