@@ -14,6 +14,8 @@ extraHead: |
       .split-hero {
           display: grid;
           grid-template-columns: 1fr 1fr;
+          position: relative;
+          z-index: 1;
       }
       .split-hero-text {
           display: flex;
@@ -53,6 +55,8 @@ extraHead: |
       .full-image {
           width: 100%;
           line-height: 0;
+          position: relative;
+          z-index: 1;
       }
       .full-image img {
           width: 100%;
@@ -73,10 +77,13 @@ extraHead: |
       /* === BOOKING SECTION — full-width, centered content, box-shadow === */
       .booking-section {
           width: 100%;
-          margin: 0;
+          margin-top: -20px;
+          margin-bottom: -20px;
           padding: 80px 48px;
           background: var(--white);
           box-shadow: 0 8px 40px rgba(0, 0, 0, 0.10), 0 -4px 20px rgba(0, 0, 0, 0.04);
+          position: relative;
+          z-index: 2;
       }
       .booking-inner {
           max-width: 560px;
