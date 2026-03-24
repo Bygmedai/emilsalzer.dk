@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: stevenwensley-a11y/emilsalzer.dk
+  repo: Bygmedai/emilsalzer.dk
   branch: main
   base_url: https://oauth.bygmedai.dk
 
