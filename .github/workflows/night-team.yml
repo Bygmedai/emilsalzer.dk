@@ -1,0 +1,87 @@
+# Night Team — The Silent Factory (Grok design v0.2, R0-slice)
+#
+# Kører ALENE på GitHubs altid-tændte servere. Ingen Haruki, ingen Stevens PC.
+# - schedule: hver nat kl. 23:00 CEST (21:00 UTC)
+# - workflow_dispatch: Steven kan trykke "Run" manuelt og se det live
+#
+# Hvad den gør: kører Claude headless på et NIGHT-READY job under .night/,
+# inden for .night/CONFIG.yaml-grænser, og åbner en DRAFT-PR. Aldrig merge,
+# aldrig deploy, aldrig main. Steven vågner til en draft-PR han kan godkende.
+name: night-team
+
+on:
+  schedule:
+    - cron: '0 21 * * *'   # 23:00 CEST
+  workflow_dispatch:
+    inputs:
+      job_file:
+        description: 'NIGHT-READY job-fil under .night/'
+        required: true
+        default: '.night/JOB-byg-59.md'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: night-team
+  cancel-in-progress: false
+
+jobs:
+  night-shift:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Installér Claude Code CLI
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Forbered nat-branch
+        id: branch
+        run: |
+          BRANCH="night/$(date +%Y-%m-%d)/byg-59-picomatch"
+          git config user.name "bygmedai-haruki"
+          git config user.email "bygmedai-haruki@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+          echo "branch=$BRANCH" >> "$GITHUB_OUTPUT"
+
+      - name: Natteholdet arbejder (Claude headless, bounded)
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          JOB_FILE="${{ github.event.inputs.job_file || '.night/JOB-byg-59.md' }}"
+          PROMPT="Du er en autonom natteholds-agent. Læs $JOB_FILE og .night/CONFIG.yaml i denne mappe. \
+          Udfør opgaven STRIKT inden for CONFIG'ens allowed_path_prefixes. Rør ALDRIG forbudte stier. \
+          Kør ingen git push eller deploy. Hvis opgaven ikke kan løses inden for grænserne: stop og skriv hvorfor i en fil NIGHT-REPORT.md. \
+          Når færdig: skriv en kort NIGHT-REPORT.md med hvad du ændrede og hvad verifikationen viste."
+          claude -p "$PROMPT" --max-turns 40 --permission-mode acceptEdits || echo "agent exit $?"
+
+      - name: Verificér (fail-closed — forbudte stier rørt = stop)
+        run: |
+          # Hård kontrol: kun tilladte filer må være ændret
+          CHANGED=$(git status --porcelain | awk '{print $2}')
+          echo "Ændrede filer:"; echo "$CHANGED"
+          for f in $CHANGED; do
+            case "$f" in
+              package.json|package-lock.json|NIGHT-REPORT.md) ;;
+              *) echo "::error::Forbudt fil ændret: $f"; exit 1 ;;
+            esac
+          done
+          # Build skal være grøn
+          npm ci && npm run build
+
+      - name: Commit + åbn DRAFT-PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git add -A
+          git commit -m "[NIGHT-TEAM] BYG-59 picomatch ReDoS-patch (autonomt natjob)" || { echo "intet at committe"; exit 0; }
+          git push origin "${{ steps.branch.outputs.branch }}"
+          gh pr create --draft --base main --head "${{ steps.branch.outputs.branch }}" \
+            --title "[NIGHT-TEAM] BYG-59 picomatch security patch" \
+            --body "Autonomt natjob. Bygget af night-team-workflow uden menneske i loopet. Draft — afventer Stevens godkendelse. Se NIGHT-REPORT.md."

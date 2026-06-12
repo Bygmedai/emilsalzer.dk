@@ -1,0 +1,18 @@
+# Night Team repo-lokal politik (Groks design v0.2 §2 Logic Isolation + Sirius R0/R1-akse)
+night_enabled: true
+repo: Bygmedai/emilsalzer.dk
+# Kun disse stier maa roeres af natteholdet:
+allowed_path_prefixes:
+  - package.json
+  - package-lock.json
+# Fysisk forbudt (kan aldrig blive [NIGHT-READY]) — Groks kannibal-graenser:
+forbidden_path_substrings:
+  - .github/
+  - src/
+  - auth/
+  - billing/
+  - governance/
+max_files_changed: 3
+max_cost_usd: 5
+# Output: aldrig main, aldrig deploy. Kun branch + draft-PR.
+delivery: draft_pr_only
