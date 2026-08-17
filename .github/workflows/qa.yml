@@ -16,7 +16,7 @@ jobs:
     name: Visual Regression
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           # Fetch the PR branch (with write access for baseline auto-commit)
           ref:   ${{ github.head_ref }}
@@ -76,7 +76,7 @@ jobs:
     name: E2E Flow Tests
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - uses: actions/setup-node@v7
         with:
@@ -111,7 +111,7 @@ jobs:
     name: Link Check
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - uses: lycheeverse/lychee-action@v2
         with:
