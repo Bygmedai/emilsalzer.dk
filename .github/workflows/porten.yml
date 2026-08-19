@@ -1,0 +1,16 @@
+# bygmedai-stak: feb30a2b3644887f
+# Lægges i HVERT repo som .github/workflows/porten.yml. Fem linjer. Det er hele omkostningen per repo.
+name: Porten
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+  check_suite:
+    types: [completed]
+concurrency:
+  group: porten-${{ github.event.pull_request.number || github.sha }}
+  cancel-in-progress: true
+jobs:
+  porten:
+    uses: Bygmedai/.github/.github/workflows/porten.yml@main
+    with:
+      paakraevede: 'HTML Validation'      # ← det eneste der ændres per repo
