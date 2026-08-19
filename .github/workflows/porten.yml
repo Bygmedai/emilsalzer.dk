@@ -1,4 +1,4 @@
-# bygmedai-stak: feb30a2b3644887f
+# bygmedai-stak: e6e974ed0993b48e
 # Lægges i HVERT repo som .github/workflows/porten.yml. Fem linjer. Det er hele omkostningen per repo.
 name: Porten
 on:
@@ -6,6 +6,16 @@ on:
     types: [opened, synchronize, reopened, ready_for_review]
   check_suite:
     types: [completed]
+# S565: kalderen SKAL selv erklære rettighederne. Repoets standard-token er read-only,
+# og en kaldt workflow kan kun indsnævre kalderens token — aldrig udvide det. Uden
+# denne blok fejler Porten ved opstart med nul jobs, hvilket ligner en syntaksfejl
+# men er et rettighedsproblem.
+permissions:
+  contents: read
+  pull-requests: write
+  checks: read
+  statuses: read
+
 concurrency:
   group: porten-${{ github.event.pull_request.number || github.sha }}
   cancel-in-progress: true
