@@ -1,16 +1,15 @@
 ---
-title: "Kultur"
+title: Kultur
 year: 2026
 date: 2026-02-13
-note: "Digtet er skrevet 13. februar 2026 til tidsskriftet Modstommen"
+note: Digtet er skrevet 13. februar 2026 til tidsskriftet Modstommen
 order: 1
 ---
-
-I Kødbyen
+Test: I Kødbyen
 sippede Jonas de sidste stråler
 af diskolys i håret
 før han fik kulturkniv
-boret ind i hjertet.
+boret ind i hjertet. 
 
 Mangfoldigt være hans efterliv.
 
@@ -32,7 +31,7 @@ gav hende kultur.
 
 På Bakken
 lærte August et nyt begreb;
-_Kuffar, kuffar!_
+*Kuffar, kuffar!*
 Og så fik han et spark i ryggen
 og da han forsøgte
 at rejse sig
@@ -44,10 +43,10 @@ at han troede
 han for en dags skyld
 kunne undslippe kulturen.
 Men som Haidar sagde;
-_Danske drenge får tæsk
+*Danske drenge får tæsk
 når vi keder os
 danske drenge får tæsk
-når vi keder os_
+når vi keder os*
 
 Nu er han finkultur.
 
