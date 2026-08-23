@@ -67,11 +67,16 @@ extraHead: |
     <h1>{{ pages.boeger.heading }}</h1>
 </section>
 
+{#
+  Oversigten bygges af bøgerne selv (src/boeger/*.md), ikke af en liste
+  der skal vedligeholdes ved siden af. Opretter Emil en bog i CMS'et,
+  dukker den op her af sig selv — og linket kan ikke pege forkert.
+#}
 <div class="books-grid">
-    {% for book in pages.boeger.books %}
-    <a href="{{ book.link }}" class="book-card" data-reveal>
-        <p class="book-meta"><strong>{{ book.year }}</strong> / {{ book.title }}</p>
-        <img src="{{ book.image }}" alt="{{ book.alt }}" class="book-cover" loading="lazy">
+    {% for bog in collections.boeger %}
+    <a href="{{ bog.url }}" class="book-card" data-reveal>
+        <p class="book-meta"><strong>{{ bog.data.listYear or bog.data.year }}</strong> / {{ bog.data.title }}</p>
+        <img src="{{ bog.data.cover }}" alt="{{ bog.data.alt }}" class="book-cover" loading="lazy">
     </a>
     {% endfor %}
 </div>

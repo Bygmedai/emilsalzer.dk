@@ -1,0 +1,73 @@
+---
+layout: base.njk
+eleventyComputed:
+  seoTitle: "{{ title }} — Emil Salzer"
+  description: "{{ description }}"
+  ogTitle: "{{ title }} — Emil Salzer"
+  ogDescription: "{{ description }}"
+  canonical: "https://emilsalzer.dk{{ page.url }}"
+  ogUrl: "https://emilsalzer.dk{{ page.url }}"
+  ogImage: "https://emilsalzer.dk{{ cover }}"
+extraHead: |
+  <style>
+      .product-header { text-align: center; padding: 48px 48px 40px; }
+      .product-header h1 { font-size: clamp(48px, 6vw, 72px); font-weight: 700; line-height: 1.1; }
+      .product-layout {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 60px;
+          max-width: 1000px;
+          margin: 0 auto;
+          padding: 0 48px 80px;
+          align-items: start;
+      }
+      .product-cover { width: 100%; height: auto; display: block; object-fit: contain; }
+      .product-text { font-size: 16px; line-height: 1.8; }
+      .product-text p { margin-bottom: 20px; }
+      .product-meta { font-weight: 700; margin-bottom: 20px; }
+      .product-text a { font-weight: 700; text-decoration: underline; }
+      .product-text a:hover { opacity: 0.7; }
+      .product-quote {
+          border-left: 3px solid var(--black);
+          padding-left: 20px;
+          margin: 20px 0;
+          font-style: italic;
+          color: var(--grey);
+      }
+      .product-quote cite { display: block; margin-top: 8px; font-style: normal; font-size: 14px; }
+
+      @media (max-width: 768px) {
+          .product-header { padding: 40px 24px 24px; }
+          .product-layout { grid-template-columns: 1fr; gap: 32px; padding: 0 24px 60px; }
+          .product-cover { max-width: 400px; margin: 0 auto; }
+      }
+  </style>
+---
+{#
+  Layout for én bog. Emil udfylder felterne i CMS'et — denne fil sørger for
+  at alle bogsider ser ens ud. Rører du CSS'en her, ændrer du ALLE bogsider.
+#}
+<section class="product-header" data-reveal>
+    <h1>{{ title }}.</h1>
+</section>
+
+<div class="product-layout" data-reveal>
+    <img src="{{ cover }}" alt="{{ alt or (title + ' af Emil Salzer') }}" class="product-cover" width="632" height="633">
+
+    <div class="product-text">
+        {{ content | safe }}
+
+        {% if quote %}
+        <blockquote class="product-quote">
+            {{ quote }}
+            {% if quoteSource %}<cite>— {{ quoteSource }}</cite>{% endif %}
+        </blockquote>
+        {% endif %}
+
+        <p class="product-meta">År: {{ year }}{% if sider %}<br>Sider: {{ sider }}{% endif %}</p>
+
+        {% if price %}
+        <p>Ønskes et fysisk eksemplar tilsendt, skal du mobilepay {{ price }} + {{ postage or 60 }} (porto) = {{ price + (postage or 60) }},- til {{ mobilepay or "2566EJ" }} og sende en mail med leveringsadresse til <a href="mailto:salzerpoetry@gmail.com">salzerpoetry@gmail.com</a><br>Skriv det, hvis den ønskes signeret.</p>
+        {% endif %}
+    </div>
+</div>
