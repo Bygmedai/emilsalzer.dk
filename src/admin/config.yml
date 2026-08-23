@@ -59,15 +59,9 @@ collections:
           - { name: ogTitle, label: "OG-titel", widget: string }
           - { name: ogDescription, label: "OG-beskrivelse", widget: string }
           - { name: heading, label: "Overskrift", widget: string }
-          - name: books
-            label: Bøger
-            widget: list
-            fields:
-              - { name: year, label: "År", widget: string }
-              - { name: title, label: "Titel", widget: string }
-              - { name: image, label: "Billedsti", widget: string }
-              - { name: link, label: "Link", widget: string }
-              - { name: alt, label: "Alt-tekst", widget: string }
+          # Listen af bøger står IKKE her længere. Oversigten på /boeger/
+          # bygges af bøgerne selv — se samlingen «Bøger» i menuen til venstre.
+          # Sådan kan et link aldrig komme til at pege på den forkerte bog.
 
       - name: filosofi
         label: Filosofi
@@ -91,7 +85,8 @@ collections:
           - { name: heading, label: "Overskrift", widget: string }
           - { name: intro, label: "Intro-tekst", widget: text }
           - { name: introCta, label: "Intro CTA", widget: string }
-          - { name: body, label: "Digte (HTML)", widget: markdown }
+          # «Digte (HTML)» er fjernet. Feltet blev aldrig vist på sitet —
+          # digtene kommer fra samlingen «Digte» i menuen til venstre.
 
       - name: foredrag
         label: Foredrag
@@ -123,8 +118,71 @@ collections:
     slug: "{{slug}}"
     fields:
       - { label: "Titel", name: "title", widget: "string" }
-      - { label: "År", name: "year", widget: "number", value_type: "int" }
-      - { label: "Dato", name: "date", widget: "datetime" }
-      - { label: "Note (valgfri)", name: "note", widget: "string", required: false }
-      - { label: "Rækkefølge", name: "order", widget: "number", value_type: "int", default: 99 }
+      - label: "År"
+        name: "year"
+        widget: "number"
+        value_type: "int"
+        required: false
+        hint: "Kun på det FØRSTE digt i et årstal. Lader du feltet stå tomt, havner digtet under årstallet ovenover. Årstallet skrives kun én gang på siden."
+      - { label: "Dato", name: "date", widget: "datetime", required: false }
+      - label: "Note under digtet"
+        name: "note"
+        widget: "string"
+        required: false
+        hint: "Links skrives sådan: [teksten der skal kunne klikkes](https://adressen.dk). *Skråskrift* med stjerner."
+      - label: "Rækkefølge"
+        name: "order"
+        widget: "number"
+        value_type: "int"
+        default: 99
+        hint: "Højeste tal står øverst. Lad den stå på 99, så lander det nye digt i toppen."
       - { label: "Digt", name: "body", widget: "markdown" }
+
+  # ── Bøgerne ──────────────────────────────────────────────────────────────
+  # Én bog = én post her. Opretter du en bog, får den både sin egen side OG
+  # en plads i oversigten på /boeger/ — du skal ikke skrive den to steder.
+  - name: "boeger_bind"
+    label: "Bøger"
+    label_singular: "bog"
+    folder: "src/boeger"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    summary: "{{year}} — {{title}}"
+    sortable_fields: ["listYear", "title"]
+    fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "bog.njk" }
+      - label: "Kladde — vises ikke på sitet endnu"
+        name: "udkast"
+        widget: "boolean"
+        default: true
+        required: false
+        hint: "Så længe der er flueben her, er bogen usynlig for besøgende. Fjern fluebenet når teksten er færdig."
+      - { label: "Bogens titel", name: "title", widget: "string", hint: "Kun navnet — fx «Kaosviol». Uden «— Emil Salzer»; det sætter sitet selv på." }
+      - label: "År"
+        name: "year"
+        widget: "string"
+        hint: "Sådan som det skal stå på bogsiden. Må gerne være et spænd, fx «2020–2022»."
+      - label: "År i oversigten"
+        name: "listYear"
+        widget: "number"
+        value_type: "int"
+        hint: "Ét tal. Bestemmer både hvad der står i oversigten på /boeger/ og hvor bogen placeres — højeste år øverst."
+      - { label: "Sidetal", name: "sider", widget: "number", value_type: "int", required: false }
+      - label: "Forside (billede)"
+        name: "cover"
+        widget: "image"
+        media_library: { config: { multiple: false } }
+        hint: "Upload billedet her. Brug samme kvadratiske format som de andre forsider."
+      - { label: "Billedbeskrivelse", name: "alt", widget: "string", hint: "Kort beskrivelse for skærmlæsere og Google, fx «Kaosviol — digtsamling af Emil Salzer»." }
+      - { label: "Kort beskrivelse (Google og sociale medier)", name: "description", widget: "text", hint: "1–2 sætninger. Det er dem der står under linket i en Google-søgning." }
+      - label: "Pris i kroner"
+        name: "price"
+        widget: "number"
+        value_type: "int"
+        required: false
+        hint: "Lad feltet stå tomt, hvis bogen ikke sælges via MobilePay. Så skrives hele købsafsnittet ikke. Porto på 60 kr. lægges til automatisk."
+      - { label: "Anmeldelsescitat", name: "quote", widget: "text", required: false }
+      - { label: "Hvem sagde det", name: "quoteSource", widget: "string", required: false, hint: "Fx «Cogito (norsk tidsskrift)». Skrives uden tankestreg foran." }
+      - { label: "Bogens tekst", name: "body", widget: "markdown", hint: "Ét afsnit per blok. *Skråskrift* med stjerner. Links: [tekst](https://adresse.dk)." }

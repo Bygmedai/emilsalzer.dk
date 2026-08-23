@@ -89,18 +89,30 @@ extraHead: |
     <p>{{ pages.poesi.introCta }}</p>
 </div>
 
+{#
+  Årstallet er en GRUPPEOVERSKRIFT, ikke et mærkat på hvert digt.
+  Det skrives kun når det skifter — så Emil kun behøver at udfylde
+  «År» på det første digt i et årstal. Lader han feltet stå tomt,
+  arver digtet årstallet fra digtet over sig.
+  Noten renderes som markdown, så [tekst](adresse) bliver et link.
+#}
+{% set visteAar = null %}
 {% for poem in collections.poesi | reverse %}
+{% set aar = poem.data.year or visteAar %}
 <div class="poem-section" data-reveal>
-    <div class="poem-year">{{ poem.data.year }}</div>
+    {% if aar and aar != visteAar %}
+    <div class="poem-year">{{ aar }}</div>
     <div class="poem-year-line"></div>
+    {% endif %}
     <h2 class="poem-title">{{ poem.data.title }}</h2>
     <div class="poem-body">
         {{ poem.templateContent | safe }}
     </div>
     {% if poem.data.note %}
-    <p class="poem-note">{{ poem.data.note }}</p>
+    <p class="poem-note">{{ poem.data.note | markdownInline | safe }}</p>
     {% endif %}
 </div>
+{% set visteAar = aar %}
 {% if not loop.last %}
 <div class="poem-divider"></div>
 {% endif %}
