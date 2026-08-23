@@ -129,7 +129,7 @@ collections:
         name: "note"
         widget: "string"
         required: false
-        hint: "Links skrives sådan: [teksten der skal kunne klikkes](https://adressen.dk). *Skråskrift* med stjerner."
+        hint: "Links skrives sådan: `[teksten der skal kunne klikkes](https://adressen.dk)`. Skråskrift: `*ord med stjerner om*`."
       - label: "Rækkefølge"
         name: "order"
         widget: "number"
@@ -149,7 +149,7 @@ collections:
     slug: "{{slug}}"
     extension: "md"
     format: "frontmatter"
-    summary: "{{year}} — {{title}}"
+    summary: "{{fields.listYear}} — {{fields.title}}"
     sortable_fields: ["listYear", "title"]
     fields:
       - { label: "Layout", name: "layout", widget: "hidden", default: "bog.njk" }
@@ -185,4 +185,4 @@ collections:
         hint: "Lad feltet stå tomt, hvis bogen ikke sælges via MobilePay. Så skrives hele købsafsnittet ikke. Porto på 60 kr. lægges til automatisk."
       - { label: "Anmeldelsescitat", name: "quote", widget: "text", required: false }
       - { label: "Hvem sagde det", name: "quoteSource", widget: "string", required: false, hint: "Fx «Cogito (norsk tidsskrift)». Skrives uden tankestreg foran." }
-      - { label: "Bogens tekst", name: "body", widget: "markdown", hint: "Ét afsnit per blok. *Skråskrift* med stjerner. Links: [tekst](https://adresse.dk)." }
+      - { label: "Bogens tekst", name: "body", widget: "markdown", hint: "Ét afsnit per blok. Skråskrift: `*ord med stjerner om*`. Links: `[tekst](https://adresse.dk)`." }
