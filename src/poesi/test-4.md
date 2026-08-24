@@ -1,6 +1,6 @@
 ---
 title: test 4
 note: again
-order: 4
+order: 2
 ---
 Test this
