@@ -1,5 +1,6 @@
 ---
 title: Dukkernes dans
+year: 2021
 note: "[Læs hele digtet i samingen
   'Uvaccineret'](https://emilsalzer.dk/boeger/uvaccineret/)"
 order: 10
