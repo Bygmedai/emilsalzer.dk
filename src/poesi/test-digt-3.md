@@ -1,9 +1,17 @@
 ---
-title: Test digt 3
-year: 2025
-note: Test note læs her 3
+title: Afsporet
+year: ""
+note: "[Digtet er en del af samingen
+  'Uvaccineret'](https://emilsalzer.dk/boeger/uvaccineret/)"
 order: 3
 ---
-Vi tester igen på
-
-denne absolutte
+Samvær\
+blevet til skamvær\
+når videnskab\
+ikke lytter til videnskab\
+skabes et tab\
+der får fattigrøv\
+til at samle mundble op\
+fra perronens affaldsbøtte \
+så han kan tilgå\
+Hovedbanen
