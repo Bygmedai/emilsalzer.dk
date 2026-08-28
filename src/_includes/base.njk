@@ -103,6 +103,10 @@
       color: var(--black);
       margin-top: 40px;
     }
+    .footer-credit a {
+      color: inherit;
+      border-bottom: 1px solid currentColor;
+    }
 
     /* Responsive */
     @media (max-width: 900px) {
@@ -170,7 +174,7 @@
     <div class="footer-col">
       <h4>{{ site.name }}</h4>
       <p>{{ site.footer.tagline }}</p>
-      <p class="footer-credit">{{ site.footer.credit }}<br>2026 &copy; {{ site.name }}</p>
+      <p class="footer-credit">{{ site.footer.credit }}{% if site.footer.creditLink %} <a href="{{ site.footer.creditLink.url }}" rel="noopener">{{ site.footer.creditLink.label }}</a>{% endif %}<br>2026 &copy; {{ site.name }}</p>
     </div>
     <div class="footer-col">
       <h4>Navigation</h4>

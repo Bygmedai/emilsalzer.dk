@@ -27,7 +27,11 @@
   },
   "footer": {
     "tagline": "Digter og filosof",
-    "credit": "Website sat op af Steven Wensley",
+    "credit": "Bygget af",
+    "creditLink": {
+      "label": "BygMedAI",
+      "url": "https://bygmedai.dk"
+    },
     "links": [
       { "label": "Foredrag", "url": "/foredrag/" },
       { "label": "Bøger", "url": "/boeger/" },
