@@ -1,5 +1,7 @@
 ---
 title: Den femte årstid
+note: "[Læs hele digtet i samlingen 'Bukkede
+  nakker'](https://emilsalzer.dk/boeger/bukkede-nakker/)"
 order: 22
 ---
 I denne sjæleskårs tid
