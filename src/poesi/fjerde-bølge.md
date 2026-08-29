@@ -1,8 +1,8 @@
 ---
 title: Fjerde bølge
 year: 2024
-note: "[Læs hele digtet i samlingen
-  'Sjælecancer'](https://emilsalzer.dk/boeger/sjaelecancer/)"
+note: "[Hør digtet blive reciteret
+  her'](https://www.youtube.com/watch?v=XM_UK7XJWNQ)"
 order: 36
 ---
 Vrede unge kvinde
