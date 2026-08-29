@@ -1,5 +1,7 @@
 ---
 title: Et afskyeligt syn
+note: "[Digtet er en del af samlingen 'Bukkede
+  nakker'](https://emilsalzer.dk/boeger/bukkede-nakker/)"
 order: 12
 ---
 Nakker går knækkede rundt i kulissen
