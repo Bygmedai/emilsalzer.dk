@@ -1,7 +1,7 @@
 ---
 title: Neger
-note: "[Læs hele digtet i samingen
-  'Uvaccineret'](https://emilsalzer.dk/boeger/uvaccineret/)"
+note: "[Hør hele digtet blive reciteret
+  her](https://www.youtube.com/watch?v=-erF_HrLExI)"
 order: 9
 ---
 Som en fritænker i lænker\
