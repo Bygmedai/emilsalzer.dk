@@ -1,6 +1,6 @@
 ---
 title: Sod
-note: "[Digtet er en del af samlingen
+note: "[Læs hele digtet i samlingen
   'Sjælecancer'](https://emilsalzer.dk/boeger/sjaelecancer/)"
 order: 33
 ---
