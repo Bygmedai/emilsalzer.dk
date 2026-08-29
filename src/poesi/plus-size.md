@@ -2,7 +2,7 @@
 title: Plus size
 note: "[Læs hele digtet i samlingen
   'Sjælecancer'](https://emilsalzer.dk/boeger/sjaelecancer/)"
-order: 33
+order: 34
 ---
 Flæsket blævrer
 
