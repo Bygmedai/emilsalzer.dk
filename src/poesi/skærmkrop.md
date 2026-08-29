@@ -1,5 +1,6 @@
 ---
 title: Skærmkrop
+year: 2023
 note: "[Digtet er en del af samlingen
   'Sjælecancer'](https://emilsalzer.dk/boeger/sjaelecancer/)"
 order: 25
