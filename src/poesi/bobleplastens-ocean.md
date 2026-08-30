@@ -1,6 +1,6 @@
 ---
 title: Bobleplastens ocean
-note: "[Læs hele digtet i samlingen
+note: "[Digtet er en del af samlingen
   'Kaosviol'](https://emilsalzer.dk/boeger/kaosviol/)"
 order: 41
 ---
