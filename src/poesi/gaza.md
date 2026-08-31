@@ -1,6 +1,7 @@
 ---
 title: Gaza
-note: ""
+note: "[Digtet er en del af samlingen
+  'Kaosviol'](https://emilsalzer.dk/boeger/kaosviol/)"
 order: 45
 ---
 Hellige ord rejser gennem tiden
