@@ -10,6 +10,10 @@ permissions:
   contents: write       # needed for baseline auto-commit on first run
   pull-requests: write  # needed for PR comments
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   # ── Visual Regression ───────────────────────────────────────────────────────
   visual-regression:
@@ -24,7 +28,7 @@ jobs:
 
       - uses: actions/setup-node@v7
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
 
       - run: npm ci
@@ -80,7 +84,7 @@ jobs:
 
       - uses: actions/setup-node@v7
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
 
       - run: npm ci
