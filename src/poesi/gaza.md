@@ -57,3 +57,21 @@ Mødre i murbrokker
 glor på en parkeret konvoj
 
 mens bøn blokeres af støj.
+
+Gaza, mellem spot og spotlys
+
+under keffiyeh-himmel og Davidsstjerner
+
+viste al blod sig rødt.
+
+Kærlighed har din løsesum;
+
+før eller senere 
+
+skal vi alle ud herfra.
+
+Tiden hvisker langsomt akut –
+
+spørgende om du vidste 
+
+hvem du var?
