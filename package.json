@@ -10,7 +10,7 @@
     "test:screenshots": "npx playwright test tests/ --reporter=list --grep='Screenshots'"
   },
   "dependencies": {
-    "@playwright/test": "^1.62.1",
+    "@playwright/test": "^1.63.0",
     "http-server": "^14.1.1",
     "markdown-it": "^15.0.1"
   },
